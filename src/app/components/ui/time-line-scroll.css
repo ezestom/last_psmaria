@@ -1,0 +1,21 @@
+#progress {
+	margin-top: 3.5rem;
+	z-index: 20;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 0%;
+	background: #046db5;
+	height: 0.25em;
+	animation: progress-grow auto linear;
+	animation-timeline: scroll(root block);
+}
+
+@keyframes progress-grow {
+	from {
+		width: 0%;
+	}
+	to {
+		width: 100%;
+	}
+}

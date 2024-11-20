@@ -1,0 +1,31 @@
+#brands-container {
+	-webkit-mask-image: linear-gradient(
+		90deg,
+		#ffffff00,
+		#000 10%,
+		#000,
+		#000 90%,
+		#ffffff00
+	);
+	mask-image: linear-gradient(
+		90deg,
+		#ffffff00,
+		#000 10%,
+		#000,
+		#000 90%,
+		#ffffff00
+	);
+}
+
+#brands-row {
+	animation: marquee 180s linear infinite;
+}
+
+@keyframes marquee {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-95%);
+	}
+}
