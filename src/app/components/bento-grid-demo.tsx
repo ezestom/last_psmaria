@@ -12,7 +12,7 @@ import {
 
 export function BentoGridSecondDemo() {
    return (
-      <BentoGrid className="">
+      <BentoGrid className=" rounded-md">
          {items.map((item, i) => (
             <BentoGridItem
                key={i}

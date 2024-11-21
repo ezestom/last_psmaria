@@ -149,19 +149,18 @@ export function Form({
 						<div className="max-w-[650px] overflow-hidden rounded-md shadow">
 							<main className="flex items-center justify-center">
 								<div
-									className=" bg-black/5 w-full  shadow-md rounded-xl relative"
+									className=" bg-[#f0f0f0] w-full  shadow-md relative"
 									id="input-container">
-									<Button
-										variant="ghost"
-										className="absolute z-100 top-0 right-0 inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1"
+									<button
+										className="absolute top-2 right-2 text-black"
 										onClick={closeDialog}>
 										<Image
-											className="w-4 h-4 hover:text-black "
+											className="size-8 hover:text-black "
 											src={xIcon}
 											alt="x-icon"
 											id="close-dialog"
 										/>
-									</Button>
+									</button>
 									{isLoading && (
 										<div className="absolute top-0 left-0 right-0 bottom-0 backdrop-blur bg-white/10 opacity-50 flex justify-center items-center z-50 rounded-md w-full h-full">
 											<span className="loader"></span>

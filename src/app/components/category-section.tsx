@@ -11,7 +11,7 @@ interface CategorySectionProps {
   categories: Category[];
 }
 
-const CategorySection: React.FC<CategorySectionProps> = ({ categories }) => {
+const CategorySection: React.FC<CategorySectionProps> = () => {
   return (
     <section className="w-full  py-10 my-10 flex justify-center flex-col" id="categories-section">
       <Subtitle subtitle='Categorias' paragraph='Variedad de productos' />

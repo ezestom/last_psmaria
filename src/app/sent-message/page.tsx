@@ -1,5 +1,5 @@
 'use client';
-import { Button } from "@/app/components/ui/button";
+
 import { CircleCheck } from "lucide-react";
 
 export function SentMessage() {
@@ -8,7 +8,7 @@ export function SentMessage() {
    };
    return (
       <div className="flex flex-col items-center justify-center h-screen">
-         <Button onClick={handleClick} className="fixed top-5 right-5">Volver a la tienda</Button>
+         <button onClick={handleClick} className="fixed top-5 right-5 inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1 px-4 py-2 rounded-md">Volver a la tienda</button>
          <div className="flex flex-col items-center justify-center">
             <h1 className="text-4xl font-bold text-primary flex items-center gap-1">Mensaje enviado
                <CircleCheck className="size-8" />
