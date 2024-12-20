@@ -18,152 +18,21 @@ import { toast, Toaster } from "sonner";
 import "../app/components/Form/Form.css";
 import whatsapp from "/public/icons/whatsappColor.svg";
 
-import img1 from "/public/band.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
-export const products = [
-	{
-		id: 1,
-		name: "Bandeja de 1000 unidades",
-		price: 99.99,
-		image: img1,
-	},
-	{
-		id: 2,
-		name: "Bandeja de 500 unidades",
-		price: 59.99,
-		image: img1,
-	},
-	{
-		id: 3,
-		name: "Bandeja de 250 unidades",
-		price: 29.99,
-		image: img1,
-	},
-	{
-		id: 4,
-		name: "Bandeja de 100 unidades",
-		price: 14.99,
-		image: img1,
-	},
-	{
-		id: 5,
-		name: "Bandeja de 50 unidades",
-		price: 7.99,
-		image: img1,
-	},
-	{
-		id: 6,
-		name: "Bandeja de 25 unidades",
-		price: 3.99,
-		image: img1,
-	},
-	{
-		id: 7,
-		name: "Bandeja de 1000 unidades",
-		price: 279.99,
-		originalPrice: 399.99,
-		image: img1,
-		tag: "Oferta",
-	},
-	{
-		id: 8,
-		name: "Bandeja de 500 unidades",
-		price: 149.99,
-		originalPrice: 199.99,
-		image: img1,
-		tag: "Oferta",
-	},
-	{
-		id: 9,
-		name: "Bandeja de 250 unidades",
-		price: 79.99,
-		originalPrice: 99.99,
-		image: img1,
-		tag: "Oferta",
-	},
-	{
-		id: 10,
-		name: "Bandeja de 100 unidades",
-		price: 39.99,
-		originalPrice: 49.99,
-		image: img1,
-		tag: "Oferta",
-	},
-	{
-		id: 11,
-		name: "Bandeja de 50 unidades",
-		price: 19.99,
-		originalPrice: 29.99,
-		image: img1,
-		tag: "Oferta",
-	},
-	{
-		id: 12,
-		name: "Bandeja de 25 unidades",
-		price: 9.99,
-		originalPrice: 14.99,
-		image: img1,
-		tag: "Oferta",
-	},
-];
+import { products, deals } from "@/data/products";
+import { Product, CartItem } from "./types"
 
-const deals = [
-	{
-		id: 7,
-		name: "Bandeja de 1000 unidades",
-		price: 279.99,
-		originalPrice: 399.99,
-		image: img1,
-		tag: "Oferta",
-	},
-	{
-		id: 8,
-		name: "Bandeja de 500 unidades",
-		price: 149.99,
-		originalPrice: 199.99,
-		image: img1,
-		tag: "Oferta",
-	},
-	{
-		id: 9,
-		name: "Bandeja de 250 unidades",
-		price: 79.99,
-		originalPrice: 99.99,
-		image: img1,
-		tag: "Oferta",
-	},
-	{
-		id: 10,
-		name: "Bandeja de 100 unidades",
-		price: 39.99,
-		originalPrice: 49.99,
-		image: img1,
-		tag: "Oferta",
-	},
-	{
-		id: 11,
-		name: "Bandeja de 50 unidades",
-		price: 19.99,
-		originalPrice: 29.99,
-		image: img1,
-		tag: "Oferta",
-	},
-	{
-		id: 12,
-		name: "Bandeja de 25 unidades",
-		price: 9.99,
-		originalPrice: 14.99,
-		image: img1,
-		tag: "Oferta",
-	},
-];
+
+
 
 export default function ECommerceApp() {
-	const [currentPage, setCurrentPage] = useState("landing");
-	const [cart, setCart] = useState([]);
+	const [currentPage, setCurrentPage] = useState<'landing' | 'products'>('landing');
+	const [cart, setCart] = useState<CartItem[]>([]);
 	const [isCartOpen, setIsCartOpen] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+
 
 	useEffect(() => {
 		const savedCart = localStorage.getItem("cart");
@@ -176,7 +45,7 @@ export default function ECommerceApp() {
 		localStorage.setItem("cart", JSON.stringify(cart));
 	}, [cart]);
 
-	const addToCart = (product) => {
+	const addToCart = (product: Product) => {
 		const existingItem = cart.find((item) => item.id === product.id);
 		if (existingItem) {
 			setCart(
@@ -191,11 +60,11 @@ export default function ECommerceApp() {
 		}
 	};
 
-	const removeFromCart = (productId) => {
+	const removeFromCart = (productId: number) => {
 		setCart(cart.filter((item) => item.id !== productId));
 	};
 
-	const updateQuantity = (productId, newQuantity) => {
+	const updateQuantity = (productId: number, newQuantity: number) => {
 		if (newQuantity === 0) {
 			removeFromCart(productId);
 		} else {
@@ -212,21 +81,16 @@ export default function ECommerceApp() {
 	// const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
 	const totalPrice = cart.reduce(
-		(sum, item) => sum + item.price * item.quantity,
+		(sum, item) => sum + (item.price ?? 0) * item.quantity,
 		0
 	);
 
 	// form
 
-	const [isLoading, setIsLoading] = useState(false);
 	useEffect(() => {
 		if (isMessageSuccess()) {
 			toast(
-				"Information successfully submitted! Thank you for your trust.",
-				{
-					type: "success",
-				}
-			);
+				"Información enviada con éxito! Gracias por tu confianza.");
 			window.location.href = "/sent-message";
 		}
 	}, []); // Agrega las dependencias aquí
@@ -238,9 +102,22 @@ export default function ECommerceApp() {
 		);
 	};
 
-	const handleSubmit = async (event) => {
+	interface FormElements extends HTMLFormControlsCollection {
+		products: HTMLInputElement;
+		total: HTMLInputElement;
+		name: HTMLInputElement;
+		company: HTMLInputElement;
+		email: HTMLInputElement;
+		message: HTMLTextAreaElement;
+	}
+
+	interface FormWithElements extends HTMLFormElement {
+		elements: FormElements;
+	}
+
+	const handleSubmit = async (event: React.FormEvent<FormWithElements>) => {
 		event.preventDefault();
-		const form = event.target;
+		const form = event.currentTarget;
 		const formData = new FormData(form);
 
 		setIsLoading(true);
@@ -259,11 +136,7 @@ export default function ECommerceApp() {
 			}
 
 			toast(
-				"Information successfully submitted! Thank you for your trust.",
-				{
-					type: "success",
-				}
-			);
+				"Tu mensaje ha sido enviado con éxito. Nos pondremos en contacto contigo a la brevedad. Gracias por tu confianza.");
 
 			setTimeout(() => {
 				const redirectTo = "/sent-message";
@@ -273,7 +146,7 @@ export default function ECommerceApp() {
 			}, 3000);
 		} catch (error) {
 			toast.error(
-				`There was a problem submitting the form, please try again. (Error: ${error.message})`
+				`There was a problem submitting the form, please try again. (Error: ${error})`
 			);
 			setIsLoading(false); // Asegúrate de desactivar el loading en caso de error
 		}
@@ -299,7 +172,7 @@ export default function ECommerceApp() {
 								<ShoppingBag className="ml-2 h-4 w-4" />
 							</Button>
 							<Button
-								variant="outline"
+
 								className="inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1"
 								onClick={() =>
 									(window.location.href = "/about")
@@ -353,8 +226,8 @@ export default function ECommerceApp() {
 						<div className="flex justify-between items-center mb-6">
 							<h2 className="text-2xl font-bold">Tu carrito</h2>
 							<Button
-								variant="ghost"
-								size="icon"
+
+
 								onClick={() => setIsCartOpen(false)}>
 								<XIcon className="h-6 w-6" />
 							</Button>
@@ -376,8 +249,8 @@ export default function ECommerceApp() {
 										className="flex items-center justify-between mb-4">
 										<div className="flex items-center">
 											<Image
-												src={item.image}
-												alt={item.name}
+												src={item.image || "/default-image.png"}
+												alt={item.name || "Producto sin nombre"}
 												className="w-16 h-16 object-cover rounded-md mr-4"
 											/>
 											<div>
@@ -385,17 +258,17 @@ export default function ECommerceApp() {
 													{item.name}
 												</h3>
 												<p className="text-sm text-muted-foreground">
-													${item.price.toFixed(2)}
+													${(item.price ?? 0).toFixed(2)}
 												</p>
 											</div>
 										</div>
 										<div className="flex items-center">
 											<Button
-												variant="outline"
-												size="icon"
+
+
 												onClick={() =>
 													updateQuantity(
-														item.id,
+														item.id!,
 														item.quantity - 1
 													)
 												}>
@@ -406,22 +279,20 @@ export default function ECommerceApp() {
 												{item.quantity}
 											</span>
 											<Button
-												variant="outline"
-												size="icon"
+
+
 												onClick={() =>
 													updateQuantity(
-														item.id,
+														item.id!,
 														item.quantity + 1
 													)
 												}>
 												<PlusIcon className="h-4 w-4" />
 											</Button>
 											<Button
-												variant="ghost"
-												size="icon"
 												className="ml-2"
 												onClick={() =>
-													removeFromCart(item.id)
+													removeFromCart(item.id!)
 												}>
 												<TrashIcon className="h-4 w-4" />
 											</Button>
@@ -443,7 +314,7 @@ export default function ECommerceApp() {
 												document.querySelector(
 													"dialog"
 												);
-											dialog.showModal();
+											dialog?.showModal();
 										}}
 										className="w-full inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1 rounded-md py-2">
 										Procesar mi cotización
@@ -459,7 +330,7 @@ export default function ECommerceApp() {
 													document.querySelector(
 														"dialog"
 													);
-												dialog.close();
+												dialog?.close();
 												window.location.href = "/";
 											}}>
 											<XIcon className="h-6 w-6" />
@@ -504,12 +375,10 @@ export default function ECommerceApp() {
 														value={cart
 															.map(
 																(item) =>
-																	`${
-																		item.name
-																	} x ${
-																		item.quantity
+																	`${item.name
+																	} x ${item.quantity
 																	} - $${(
-																		item.price *
+																		(item.price ?? 0) *
 																		item.quantity
 																	).toFixed(
 																		2
@@ -602,7 +471,6 @@ export default function ECommerceApp() {
 			<Header
 				setCurrentPage={setCurrentPage}
 				cart={cart}
-				setCart={setCart}
 				isCartOpen={isCartOpen}
 				setIsCartOpen={setIsCartOpen}
 			/>

@@ -1,6 +1,6 @@
 export function Subtitle({ subtitle, paragraph }: { subtitle: string, paragraph: string }) {
    return (
-      <div>
+      <div className="md:pt-32 md:pb-10">
          <h2 className="text-3xl sm:text-5xl tracking-tighter font-black flex flex-col text-center text-gray-900 my-8 sm:my-20 gap-y-2">
             {subtitle}
             {/* add a line */}
