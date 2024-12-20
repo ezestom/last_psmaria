@@ -23,7 +23,7 @@ const DealsSection: React.FC<DealsSectionProps> = ({ deals, addToCart }) => {
   return (
     <section className="w-full mt-10 flex justify-center" id="deals">
       <div className="container px-4 md:px-6 ">
-        <Subtitle subtitle='Ofertas por volúmen' paragraph='Contactanos por mas productos' />
+        <Subtitle subtitle='Productos' paragraph='Contactanos por mas productos' />
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-10">
           {deals.map((deal) => (
             <div key={deal.id} className="group">

@@ -1,70 +1,86 @@
 import React from 'react';
 import Image from "next/image";
-import pyg from "/public/companies/pyg.png";
 import './company-logo.css'
 import { Subtitle } from "./ui/subtitle";
+import argensil from "/public/companies/argensil.png";
+import aurill from "/public/companies/aurill.png";
+import copack from "/public/companies/copack.png";
+import eje from "/public/companies/eje.png";
+import fadepsa from "/public/companies/fadepsa.png";
+import feit from "/public/companies/feit.png";
+import huagro from "/public/companies/huagro.png";
+import johnson from "/public/companies/johnson.png";
+import lago from "/public/companies/lago.png";
+import quali from "/public/companies/quali.png";
+import reopen from "/public/companies/reopen.png";
+import simo from "/public/companies/simo.png";
+import tnt from "/public/companies/tnt.png";
 
 const CompanyLogoSection = () => {
   const companies = [
     {
-      name: "PyG",
-      logo: { pyg },
+      name: "argensil",
+      logo: argensil,
       url: '#'
     },
     {
-      name: "PyG",
-      logo: { pyg },
+      name: "aurill",
+      logo: aurill,
       url: '#'
     },
     {
-      name: "PyG",
-      logo: { pyg },
+      name: "copack",
+      logo: copack,
       url: '#'
     },
     {
-      name: "PyG",
-      logo: { pyg },
+      name: "eje",
+      logo: eje,
       url: '#'
     },
     {
-      name: "PyG",
-      logo: { pyg },
+      name: "fadepsa",
+      logo: fadepsa,
       url: '#'
     },
     {
-      name: "PyG",
-      logo: { pyg },
-      url: '#'
-    },
-
-    {
-      name: "PyG",
-      logo: { pyg },
+      name: "feit",
+      logo: feit,
       url: '#'
     },
     {
-      name: "PyG",
-      logo: { pyg },
+      name: "huagro",
+      logo: huagro,
       url: '#'
     },
     {
-      name: "PyG",
-      logo: { pyg },
+      name: "johnson",
+      logo: johnson,
       url: '#'
     },
     {
-      name: "PyG",
-      logo: { pyg },
+      name: "lago",
+      logo: lago,
       url: '#'
     },
     {
-      name: "PyG",
-      logo: { pyg },
+      name: "quali",
+      logo: quali,
       url: '#'
     },
     {
-      name: "PyG",
-      logo: { pyg },
+      name: "reopen",
+      logo: reopen,
+      url: '#'
+    },
+    {
+      name: "simo",
+      logo: simo,
+      url: '#'
+    },
+    {
+      name: "tnt",
+      logo: tnt,
       url: '#'
     },
 
@@ -91,8 +107,8 @@ const CompanyLogoSection = () => {
                   <div className="p-2 flex grayscale transition duration-200 hover:grayscale-0 hover:scale-105 ">
                     <Image
                       alt={`${company.name} logo`}
-                      className="overflow-hidden rounded-lg object-cover object-center "
-                      src={company.logo.pyg}
+                      className="overflow-hidden object-contain object-center drop-shadow-sm max-w-36   max-h-24"
+                      src={company.logo}
                     />
                   </div>
                 </a>

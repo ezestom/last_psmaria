@@ -6,7 +6,6 @@ import { XIcon, MinusIcon, PlusIcon, TrashIcon } from "lucide-react";
 import { ArrowRight, ShoppingBag } from "lucide-react";
 import CompanyLogoSection from "@/app/components/company-logo";
 import DealsSection from "@/app/components/deals-section";
-import CategorySection from "@/app/components/category-section";
 import TestimonialSection from "@/app/components/testimonial-section";
 import FeaturesSection from "@/app/components/features-section";
 import CTASignUpSection from "@/app/components/cta-section";
@@ -17,9 +16,11 @@ import { FlipWordsDemo } from "@/app/components/FlipWordsDemo";
 import { TimeLineScroll } from "@/app/components/ui/time-line-scroll";
 import { toast, Toaster } from "sonner";
 import "../app/components/Form/Form.css";
+import whatsapp from "/public/icons/whatsappColor.svg";
 
 import img1 from "/public/band.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 export const products = [
 	{
@@ -106,13 +107,6 @@ export const products = [
 		image: img1,
 		tag: "Oferta",
 	},
-];
-
-const categories = [
-	{ name: "Alimentos", icon: "🍔" },
-	{ name: "Farmacia", icon: "💊" },
-	{ name: "Químicos", icon: "⚗️" },
-	{ name: "Limpieza", icon: "🧼" },
 ];
 
 const deals = [
@@ -314,6 +308,19 @@ export default function ECommerceApp() {
 								<ArrowRight className="ml-2 h-4 w-4" />
 							</Button>
 						</div>
+						<Link
+							id="toggle_nav"
+							className="fixed max-w-16 right-5 bottom-5 z-50 hover:scale-105 transition"
+							target="_blank"
+							href="https://wa.me/+5492944625908">
+							<Image
+								src={whatsapp}
+								alt="whatsapp logo"
+								width={200}
+								height={200}
+								className="drop-shadow-lg"
+							/>
+						</Link>
 					</div>
 				</div>
 			</section>
@@ -322,7 +329,7 @@ export default function ECommerceApp() {
 
 			<DealsSection deals={deals} addToCart={addToCart} />
 
-			<CategorySection categories={categories} />
+			{/* <CategorySection categories={categories} /> */}
 
 			<TestimonialSection />
 
