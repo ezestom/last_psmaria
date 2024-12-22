@@ -20,6 +20,9 @@
 #brands-row {
 	animation: marquee 180s linear infinite;
 }
+#brands-row-2 {
+	animation: marquee2 180s linear infinite;
+}
 
 @keyframes marquee {
 	0% {
@@ -27,5 +30,13 @@
 	}
 	100% {
 		transform: translateX(-95%);
+	}
+}
+@keyframes marquee2 {
+	0% {
+		transform: translateX(-95%);
+	}
+	100% {
+		transform: translateX(0);
 	}
 }

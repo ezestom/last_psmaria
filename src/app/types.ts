@@ -4,11 +4,31 @@ import { StaticImageData } from "next/image";
 export interface Product {
 	id?: number;
 	name?: string;
-	price?: number;
 	image?: string | StaticImageData; // O el tipo específico para tu imagen
-	originalPrice?: number;
-	tag?: string;
+	category?: string;
+	material?: string;
+	capacity?: string;
+	color?: string;
+	weight?: number | string;
 	quantity?: number;
+	// price?: number;
+	// originalPrice?: number;
+	isOffer?: boolean;
+}
+
+export interface Deal {
+	id?: number;
+	name?: string;
+	image?: string | StaticImageData; // O el tipo específico para tu imagen
+	category?: string;
+	material?: string;
+	capacity?: string;
+	color?: string;
+	weight?: number | string;
+	quantity?: number;
+	// price?: number;
+	// originalPrice?: number;
+	isOffer?: boolean;
 }
 
 export interface CartItem extends Product {
@@ -31,5 +51,5 @@ export interface ProductPageProps {
 
 export interface DealsSectionProps {
 	deals: Product[];
-   addToCart: (product: Product) => void;
+	addToCart: (product: Product) => void;
 }

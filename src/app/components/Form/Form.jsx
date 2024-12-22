@@ -6,6 +6,8 @@ import xIcon from "/public/icons/x.svg";
 import "./Form.css";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { Card } from "../ui/card";
+import formImage from "/public/icons/message.svg";
 
 export function Form({
 	h1,
@@ -40,14 +42,14 @@ export function Form({
 		setDialog(true);
 		document.body.style.overflow = "hidden";
 		document.getElementById("navbar").style.display = "none";
-		// document.getElementById("progress").style.display = "none";
+		document.getElementById("progress").style.display = "none";
 	};
 
 	const closeDialog = () => {
 		setDialog(false);
 		document.body.style.overflow = "auto";
 		document.getElementById("navbar").style.display = "flex";
-		// document.getElementById("progress").style.display = "flex";
+		document.getElementById("progress").style.display = "flex";
 	};
 
 	const isMessageSuccess = () => {
@@ -101,7 +103,7 @@ export function Form({
 	};
 
 	return (
-		<div className="relative flex items-center mt-10 justify-center z-10 m-auto">
+		<div className="relative flex items-center mt-10 justify-center z-10  m-auto">
 			<Toaster />
 			{/* <div className="flex w-full items-center justify-center">
 				<a
@@ -146,123 +148,124 @@ export function Form({
 					<section
 						className="backdrop-blur-md flex items-center justify-center overflow-hidden  "
 						id="form-section">
-						<div className="max-w-[650px] overflow-hidden rounded-md shadow">
-							<main className="flex items-center justify-center">
-								<div
-									className=" bg-[#f0f0f0] w-full  shadow-md relative"
-									id="input-container">
-									<button
-										className="absolute top-2 right-2 text-black"
-										onClick={closeDialog}>
-										<Image
-											className="size-8 hover:text-black "
-											src={xIcon}
-											alt="x-icon"
-											id="close-dialog"
-										/>
-									</button>
-									{isLoading && (
-										<div className="absolute top-0 left-0 right-0 bottom-0 backdrop-blur bg-white/10 opacity-50 flex justify-center items-center z-50 rounded-md w-full h-full">
-											<span className="loader"></span>
-										</div>
-									)}
-									<h1 className="font-bold mx-2 text-gray-900 text-xl sm:text-2xl ">
-										{h1}
-									</h1>
+						<main className="flex items-center justify-center border rounded-md ">
+							<Card
+								className="max-w-[600px] border-none"
+								id="input-container">
+								<button
+									className="absolute top-2 right-2 text-black"
+									onClick={closeDialog}>
+									<Image
+										className="size-8 hover:text-black "
+										src={xIcon}
+										alt="x-icon"
+										id="close-dialog"
+									/>
+								</button>
+								{isLoading && (
+									<div className="absolute top-0 left-0 right-0 bottom-0 backdrop-blur bg-white/10 opacity-50 flex justify-center items-center z-50 rounded-md w-full h-full">
+										<span className="loader"></span>
+									</div>
+								)}
+								<h1 className="font-bold mx-2 text-gray-900 text-xl sm:text-2xl ">
+									{h1}
+								</h1>
 
-									<p className="mt-4 text-sm leading-relaxed mx-2 text-gray-700">
-										{subtitle}
-									</p>
-									<form
-										onSubmit={handleSubmit}
-										method="POST"
-										action="https://formsubmit.co/ezequielstom@gmail.com"
-										className="mt-8 gap-6 mx-2">
-										<input
-											type="hidden"
-											name="_subject"
-											value="📃 Santa María | 📩 Nuevo Mensaje!"
-										/>
-										<input
-											type="hidden"
-											name="_autoresponse"
-											value={toast_message}></input>
+								<p className="mt-4 text-sm leading-relaxed mx-2 text-gray-700">
+									{subtitle}
+								</p>
+								<form
+									onSubmit={handleSubmit}
+									method="POST"
+									action="https://formsubmit.co/ezequielstom@gmail.com"
+									className="mt-8 gap-6 mx-2">
+									<input
+										type="hidden"
+										name="_subject"
+										value="📃 Santa María | 📩 Nuevo Mensaje!"
+									/>
+									<input
+										type="hidden"
+										name="_autoresponse"
+										value={toast_message}></input>
 
-										<input
-											type="hidden"
-											name="_captcha"
-											value="false"
-										/>
+									<input
+										type="hidden"
+										name="_captcha"
+										value="false"
+									/>
 
-										<div className="col-span-6 sm:col-span-3">
-											<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
-												{name}
-												<input
-													type="text"
-													name="name"
-													id="name"
-													placeholder="Juan Perez"
-													required
-													className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-												/>
-											</label>
-										</div>
-										<div className="col-span-6 sm:col-span-3">
-											<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
-												{company}
-												<input
-													type="text"
-													name="company"
-													id="company"
-													placeholder="Plásticos Santa María"
-													required
-													className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-												/>
-											</label>
-										</div>
-										<div className="col-span-6 sm:col-span-3">
-											<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
-												{email}
-												<input
-													className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-													type="email"
-													name="email"
-													id="email"
-													required
-													placeholder={
-														email_placeholder
-													}
-												/>
-											</label>
-										</div>
-										<fieldset>
-											<legend className="flex flex-col items-start justify-start text-sm py-2 font-medium text-gray-700 ">
-												{message}
-												<textarea
-													name="message"
-													id="message"
-													required
-													className="w-full border-gray-200 rounded-md bg-white text-sm text-gray-700 shadow-sm p-2 max-h-[100px]"
-													placeholder={
-														message_placeholder
-													}></textarea>
-											</legend>
-										</fieldset>
+									<div className="col-span-6 sm:col-span-3">
+										<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
+											{name}
+											<input
+												type="text"
+												name="name"
+												id="name"
+												placeholder="Juan Perez"
+												required
+												className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+											/>
+										</label>
+									</div>
+									<div className="col-span-6 sm:col-span-3">
+										<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
+											{company}
+											<input
+												type="text"
+												name="company"
+												id="company"
+												placeholder="Plásticos Santa María"
+												required
+												className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+											/>
+										</label>
+									</div>
+									<div className="col-span-6 sm:col-span-3">
+										<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
+											{email}
+											<input
+												className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+												type="email"
+												name="email"
+												id="email"
+												required
+												placeholder={email_placeholder}
+											/>
+										</label>
+									</div>
+									<fieldset>
+										<legend className="flex flex-col items-start justify-start text-sm py-2 font-medium text-gray-700 ">
+											{message}
+											<textarea
+												name="message"
+												id="message"
+												required
+												className="w-full border-gray-200 rounded-md bg-white text-sm text-gray-700 shadow-sm p-2 max-h-[100px]"
+												placeholder={
+													message_placeholder
+												}></textarea>
+										</legend>
+									</fieldset>
 
-										<div className="flex justify-center flex-col pt-4 gap-4">
-											<Button
-												type="submit"
-												className="inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1">
-												{send}
-											</Button>
-											<p className="mt-4 text-sm text-gray-700 font-semibold sm:mt-0 text-center ">
-												✉️ {message_2}
-											</p>
-										</div>
-									</form>
-								</div>
-							</main>
-						</div>
+									<div className="flex justify-center flex-col pt-4 gap-4">
+										<Button
+											type="submit"
+											className="inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1">
+											{send}
+										</Button>
+										<p className="mt-4 text-sm text-gray-700 font-semibold sm:mt-0 text-center ">
+											✉️ {message_2}
+										</p>
+									</div>
+								</form>
+							</Card>
+							<Image
+								src={formImage}
+								alt="form"
+								className="hidden md:block w-1/2 grayscale"
+							/>
+						</main>
 					</section>
 				</dialog>
 			)}

@@ -7,6 +7,8 @@ import { ArrowRight, ShoppingBag } from "lucide-react";
 import CompanyLogoSection from "@/app/components/company-logo";
 import DealsSection from "@/app/components/deals-section";
 import TestimonialSection from "@/app/components/testimonial-section";
+// import CategorySection from "./components/category-section";
+import ProductSection from "@/app/components/product-section";
 import FeaturesSection from "@/app/components/features-section";
 import CTASignUpSection from "@/app/components/cta-section";
 import SiteFooter from "@/app/components/site-footer";
@@ -21,7 +23,7 @@ import whatsapp from "/public/icons/whatsappColor.svg";
 import Image from "next/image";
 import Link from "next/link";
 
-import { products, deals } from "@/data/products";
+import { products } from "@/data/products";
 import { Product, CartItem } from "./types"
 
 
@@ -80,10 +82,10 @@ export default function ECommerceApp() {
 
 	// const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-	const totalPrice = cart.reduce(
-		(sum, item) => sum + (item.price ?? 0) * item.quantity,
-		0
-	);
+	// const totalPrice = cart.reduce(
+	// 	(sum, item) => sum + (item.price ?? 0) * item.quantity,
+	// 	0
+	// );
 
 	// form
 
@@ -165,25 +167,25 @@ export default function ECommerceApp() {
 					<div className="flex flex-col justify-center space-y-8 text-center lg:text-left ">
 						<FlipWordsDemo />
 						<div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-							<Button
+							{/* <Button
 								className="inline-flex items-center justify-center rounded-md bg-white hover:bg-slate-300 shadow transition-colors  focus-visible:outline-none focus-visible:ring-1 "
 								onClick={() => setCurrentPage("products")}>
 								Productos
 								<ShoppingBag className="ml-2 h-4 w-4" />
-							</Button>
+							</Button> */}
 							<Button
 
 								className="inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1"
 								onClick={() =>
 									(window.location.href = "/about")
 								}>
-								Sobre la Empresa
+								Empresa familiar
 								<ArrowRight className="ml-2 h-4 w-4" />
 							</Button>
 						</div>
 						<Link
 							id="toggle_nav"
-							className="fixed max-w-16 right-5 bottom-5 z-50 hover:scale-105 transition"
+							className="fixed max-w-10 right-5 bottom-5 z-50 hover:scale-105 transition"
 							target="_blank"
 							href="https://wa.me/+5492944625908">
 							<Image
@@ -198,11 +200,15 @@ export default function ECommerceApp() {
 				</div>
 			</section>
 
+
+
+			<ProductSection products={products} addToCart={addToCart} />
+
+
 			<CompanyLogoSection />
+			{/* <CategorySection /> */}
 
-			<DealsSection deals={deals} addToCart={addToCart} />
-
-			{/* <CategorySection categories={categories} /> */}
+			<DealsSection deals={products} addToCart={addToCart} />
 
 			<TestimonialSection />
 
@@ -257,9 +263,9 @@ export default function ECommerceApp() {
 												<h3 className="font-semibold">
 													{item.name}
 												</h3>
-												<p className="text-sm text-muted-foreground">
+												{/* <p className="text-sm text-muted-foreground">
 													${(item.price ?? 0).toFixed(2)}
-												</p>
+												</p> */}
 											</div>
 										</div>
 										<div className="flex items-center">
@@ -304,9 +310,9 @@ export default function ECommerceApp() {
 										<span className="font-semibold">
 											Total:
 										</span>
-										<span className="font-bold">
+										{/* <span className="font-bold">
 											${totalPrice.toFixed(2)}
-										</span>
+										</span> */}
 									</div>
 									<button
 										onClick={() => {
@@ -366,7 +372,7 @@ export default function ECommerceApp() {
 													value="false"
 												/>
 												{/*  aquí hay que armar el input cargando la info que viene desde el carrito */}
-												<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
+												{/* <label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
 													Productos para cotizar
 													<input
 														type="text"
@@ -387,11 +393,11 @@ export default function ECommerceApp() {
 															.join(", ")}
 														readOnly
 													/>
-												</label>
+												</label> */}
 												<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
 													Total de los productos
 													seleccionados
-													<input
+													{/* <input
 														type="text"
 														name="total"
 														className="p-2 my-1 w-full rounded-md border-gray-200 bg-black  text-sm text-white text-pretty shadow-sm active:bg-black focus:outline-none"
@@ -399,7 +405,7 @@ export default function ECommerceApp() {
 															2
 														)}`}
 														readOnly
-													/>
+													/> */}
 												</label>
 
 												<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">

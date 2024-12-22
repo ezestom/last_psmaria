@@ -3,16 +3,8 @@ import React from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Subtitle } from './ui/subtitle';
-import Image, { StaticImageData } from 'next/image';
-
-interface Deal {
-  id: number;
-  name: string;
-  price: number;
-  originalPrice: number;
-  image: StaticImageData;
-  tag: string;
-}
+import Image from 'next/image';
+import { Deal } from '../types';
 
 interface DealsSectionProps {
   deals: Deal[];
@@ -20,48 +12,89 @@ interface DealsSectionProps {
 }
 
 const DealsSection: React.FC<DealsSectionProps> = ({ deals, addToCart }) => {
+  const [showAllDeals, setShowAllDeals] = React.useState(false);
+
+  // Filtrar solo los productos con isOffer: true
+  const filteredDeals = deals.filter((deal) => deal.isOffer);
+
+  // Limitar las ofertas según el estado de "mostrar todo"
+  const displayedDeals = showAllDeals ? filteredDeals : filteredDeals.slice(0, 2);
+
   return (
-    <section className="w-full mt-10 flex justify-center" id="deals">
-      <div className="container px-4 md:px-6 ">
-        <Subtitle subtitle='Productos' paragraph='Contactanos por mas productos' />
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-10">
-          {deals.map((deal) => (
-            <div key={deal.id} className="group">
-              <Card className="transition-shadow duration-300 ease-in-out hover:shadow-xl">
-                <CardContent className="p-4 flex flex-col justify-between h-full">
-                  <div className="flex-1">
-                    <Image
-                      width={300}
-                      height={300}
-                      src={deal.image}
-                      alt={deal.name}
-                      className="w-full h-56 object-cover mb-4 rounded-lg transition-transform duration-300 ease-in-out "
-                    />
-                    <div className="flex justify-between items-center mb-2">
-                      <h3 className="text-xl font-semibold">{deal.name}</h3>
-                      <span className="bg-primary text-white text-xs font-bold px-2 py-1 rounded-full">
-                        {deal.tag}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-500 line-through">
-                        ${deal.originalPrice.toFixed(2)}
-                      </span>
-                      <span className="text-2xl font-bold">
-                        ${deal.price.toFixed(2)}
-                      </span>
-                    </div>
-                  </div>
-                  <Button onClick={() => addToCart(deal)} className="mt-4 inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1 ">
-                    Cotizar precio
-                  </Button>
-                </CardContent>
+    <main className="flex-1 flex justify-center" id="deals">
+      <section className="w-full py-10 md:py-10 lg:py-10 flex justify-center flex-col items-center">
+        <div className="container px-4 md:px-6">
+          <Subtitle subtitle="Ofertas" paragraph="Lista de las ofertas por cantidad" />
+
+          {/* Mostrar un mensaje si no hay ofertas disponibles */}
+          {filteredDeals.length === 0 ? (
+            <p className="text-center text-gray-500">No hay ofertas disponibles en este momento.</p>
+          ) : (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {/* Mapeo de productos filtrados */}
+              {displayedDeals.map((deal) => (
+                <div key={deal.id}>
+                  <Card>
+                    <CardContent className="p-4">
+                      <Image
+                        width={300}
+                        height={300}
+                        src={deal.image}
+                        alt={deal.name || 'Producto'}
+                        className="w-full h-48 object-cover mb-4 rounded-md border border-gray-200"
+                      />
+                      <h2 className="text-xl font-bold mb-2">{deal.name}</h2>
+                      <p className="text-muted-foreground flex text-sm gap-2 mb-2">
+                        <span className="font-semibold">Categoría: </span>
+                        {deal.category}
+                      </p>
+                      <p className="text-muted-foreground flex text-sm gap-2 mb-2">
+                        <span className="font-semibold">Material: </span>
+                        {deal.material}
+                      </p>
+                      <p className="text-muted-foreground flex text-sm gap-2 mb-2">
+                        <span className="font-semibold">Capacidad: </span>
+                        {deal.capacity}
+                      </p>
+                      <p className="text-muted-foreground flex text-sm gap-2 mb-2">
+                        <span className="font-semibold">Color: </span>
+                        {deal.color}
+                      </p>
+                      <p className="text-muted-foreground flex text-sm gap-2 mb-2">
+                        <span className="font-semibold">Peso: </span>
+                        {deal.weight}
+                      </p>
+                      <p className="text-muted-foreground flex text-sm gap-2 mb-2">
+                        <span className="font-semibold">Compra mínima: </span>
+                        {deal.quantity}
+                      </p>
+                      <Button
+                        onClick={() => addToCart(deal)}
+                        className="w-full gap-1 inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1"
+                      >
+                        Agregar al carrito
+                        <span className="text-xs"> - para cotizar </span>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+
+              {/* Botón para alternar entre mostrar todas las ofertas o solo algunas */}
+              <Card>
+                <Button
+                  onClick={() => setShowAllDeals(!showAllDeals)}
+                  className={`w-full h-full inline-flex items-center justify-center ${showAllDeals ? 'bg-black text-white' : 'bg-transparent text-black'
+                    } hover:bg-black hover:text-white shadow-md transition rounded-md py-2`}
+                >
+                  {showAllDeals ? 'Ver menos ofertas' : 'Ver todas las ofertas'}
+                </Button>
               </Card>
             </div>
-          ))}
+          )}
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

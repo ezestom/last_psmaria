@@ -5,9 +5,9 @@ import { Subtitle } from './ui/subtitle';
 const CTASignUpSection = () => {
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 flex justify-center">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center space-y-4 text-center">
+    <section className="w-full py-10 md:py-10 lg:py-10 flex justify-center flex-col items-center ">
+      <div className="container px-4 md:px-6 ">
+        <div className="flex flex-col items-center space-y-4 text-center border rounded-md shadow-sm border-gray-200 pb-10 my-20 bg-gray-50">
           <div className="space-y-2">
             <Subtitle subtitle='Estamos aquí para ayudarte' paragraph='Envianos tus consultas y te responderemos a la brevedad' />
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">

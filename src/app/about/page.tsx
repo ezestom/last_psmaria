@@ -5,17 +5,22 @@ import React from "react";
 import factory from "/public/factory.jpg";
 import { Subtitle } from "@/app/components/ui/subtitle";
 import { Button } from "@/app/components/ui/button";
+import EmblaCarousel from "@/app/components/ui/embla-carousel";
 
 function AboutSection() {
+   const OPTIONS: EmblaOptionsType = {}
+   const SLIDE_COUNT = 10
+   const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
    return (
       <>
          <section className="w-full py-4  min-h-screen flex justify-center">
             <Button className="fixed top-5 right-5 inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1" onClick={() => window.location.href = '/'}>
                Volver
             </Button>
-            <div className="container px-4 md:px-6">
+            <div className="container px-4 md:px-6 border rounded-md shadow-sm border-gray-200 bg-gray-100">
                <Subtitle subtitle="Sobre Nosotros" paragraph="Conoce más sobre nosotros" />
-               <article className="flex flex-col sm:flex-row">
+               <article className="flex flex-col sm:flex-row ">
                   <div className="max-w-3xl mx-auto text-start text-sm w-full sm:w-1/2 p-2 sm:p-10">
                      <p className="text-muted-foreground mb-6">
                         En Plásticos Santa María, nos dedicamos a la fabricación y
@@ -42,8 +47,10 @@ function AboutSection() {
                      </p>
                   </div>
                   <div className="w-full sm:w-1/2 p-2 sm:p-10">
-                     <Image src={factory} alt="image company" className="rounded-lg object-cover h-full shadow"
-                     />
+                     {/* <Image src={factory} alt="image company" className="rounded-lg object-cover h-full shadow"
+                     /> */}
+                     <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+
                   </div>
                </article>
             </div>

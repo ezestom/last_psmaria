@@ -6,15 +6,8 @@ import { ShoppingCartIcon } from "lucide-react";
 import { MyDrawer } from "./MyDrawer/MyDrawer";
 import Link from "next/link";
 
-const Header = ({
-	setCurrentPage,
-	cart,
-	isCartOpen,
-	setIsCartOpen,
-}) => {
-	
+const Header = ({ setCurrentPage, cart, isCartOpen, setIsCartOpen }) => {
 	const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
 
 	return (
 		<div
@@ -41,26 +34,36 @@ const Header = ({
 
 					<nav className="flex items-center space-x-6 text-sm font-medium">
 						<Link
+							className="transition-colors shadow bg-white hover:bg-slate-300 px-4 py-2 rounded-md hover:text-foreground/80 text-foreground/60"
+							href="/#products">
+							Productos
+						</Link>
+						<Link
 							className="transition-colors shadow  bg-white hover:bg-slate-300 px-4 py-2 rounded-md hover:text-foreground/80 text-foreground/60"
 							href="/#deals">
 							Ofertas
 						</Link>
-						<Link
+						{/* <Link
 							className="transition-colors shadow bg-white hover:bg-slate-300 px-4 py-2 rounded-md hover:text-foreground/80 text-foreground/60"
 							href="#categories-section">
 							Categorias
-						</Link>
-						<Link
+						</Link> */}
+						{/* <Link
 							className="transition-colors shadow bg-white hover:bg-slate-300 px-4 py-2 rounded-md hover:text-foreground/80 text-foreground/60"
 							href="#"
 							onClick={() => setCurrentPage("products")}>
 							Productos
-						</Link>
+						</Link> */}
 
 						<Link
 							className="transition-colors shadow bg-white hover:bg-slate-300 px-4 py-2 rounded-md hover:text-foreground/80 text-foreground/60"
 							href="/about">
 							Nosotros
+						</Link>
+						<Link
+							className="transition-colors shadow bg-white hover:bg-slate-300 px-4 py-2 rounded-md hover:text-foreground/80 text-foreground/60"
+							href="/contact">
+							Contacto
 						</Link>
 					</nav>
 				</div>

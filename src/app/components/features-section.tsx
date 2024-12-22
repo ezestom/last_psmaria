@@ -43,9 +43,9 @@ const features = [
         <polyline points="20 6 9 17 4 12" />
       </svg>
     ),
-    title: "Devoluciones fáciles",
+    title: "Cotización rápida",
     description:
-      "¿No estás satisfecho con tu compra? Nuestra política de devolución sin complicaciones te permite obtener exactamente lo que quieres.",
+      "Reciba una cotización en minutos. No se requiere tarjeta de crédito. No se requiere compromiso. Contacte con nosotros y le responderemos a la brevedad con la mejor cotización del mercado.",
   },
   {
     icon: (
@@ -66,9 +66,9 @@ const features = [
         <line x1="12" y1="15" x2="12" y2="3" />
       </svg>
     ),
-    title: "Pago seguro",
+    title: "Producimos bajo demanda",
     description:
-      "Compre con confianza. Nuestro proceso de pago seguro mantiene su información segura y privada. Plataforma de seguridad.",
+      "Producimos bajo demanda, lo que significa que no producimos nada hasta que usted lo pida. Esto significa que no hay exceso de inventario y podemos mantener nuestros costos bajos.",
   },
 ];
 
