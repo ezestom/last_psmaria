@@ -104,7 +104,7 @@ const CompanyLogoSection = () => {
                   href={company.url}
                   key={i}
                   target="_blank"
-                  className="size-24 md:size-48 flex items-center justify-center">
+                  className="size-24 md:size-36 flex items-center justify-center">
                   <div className="p-2 flex  grayscale transition duration-200 hover:grayscale-0 hover:scale-105 ">
                     <Image
                       alt={`${company.name} logo`}
@@ -124,7 +124,7 @@ const CompanyLogoSection = () => {
                   href={company.url}
                   key={i}
                   target="_blank"
-                  className="size-24 md:size-48 flex items-center justify-center">
+                  className="size-24 md:size-36 flex items-center justify-center">
                   <div className="p-2 flex  grayscale transition duration-200 hover:grayscale-0 hover:scale-105 ">
                     <Image
                       alt={`${company.name} logo`}

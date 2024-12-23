@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
-import factory from "/public/factory.jpg";
+import { EmblaOptionsType } from 'embla-carousel';
 import { Subtitle } from "@/app/components/ui/subtitle";
 import { Button } from "@/app/components/ui/button";
 import EmblaCarousel from "@/app/components/ui/embla-carousel";
@@ -19,7 +18,7 @@ function AboutSection() {
                Volver
             </Button>
             <div className="container px-4 md:px-6 border rounded-md shadow-sm border-gray-200 bg-gray-100">
-               <Subtitle subtitle="Sobre Nosotros" paragraph="Conoce más sobre nosotros" />
+               <Subtitle subtitle="Plásticos Santa María" paragraph="Conoce más sobre nosotros" />
                <article className="flex flex-col sm:flex-row ">
                   <div className="max-w-3xl mx-auto text-start text-sm w-full sm:w-1/2 p-2 sm:p-10">
                      <p className="text-muted-foreground mb-6">

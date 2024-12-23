@@ -3,7 +3,7 @@ import "./page.css";
 import { useState, useEffect } from "react";
 import { Button } from "@/app/components/ui/button";
 import { XIcon, MinusIcon, PlusIcon, TrashIcon } from "lucide-react";
-import { ArrowRight, ShoppingBag } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import CompanyLogoSection from "@/app/components/company-logo";
 import DealsSection from "@/app/components/deals-section";
 import TestimonialSection from "@/app/components/testimonial-section";
@@ -19,12 +19,15 @@ import { TimeLineScroll } from "@/app/components/ui/time-line-scroll";
 import { toast, Toaster } from "sonner";
 import "../app/components/Form/Form.css";
 import whatsapp from "/public/icons/whatsappColor.svg";
+import formImage from "/public/factory.jpg";
 
 import Image from "next/image";
 import Link from "next/link";
 
 import { products } from "@/data/products";
 import { Product, CartItem } from "./types"
+import { Card } from "./components/ui/card";
+import { AnimatedModalDemo } from "./components/animated-modal-demo";
 
 
 
@@ -167,14 +170,7 @@ export default function ECommerceApp() {
 					<div className="flex flex-col justify-center space-y-8 text-center lg:text-left ">
 						<FlipWordsDemo />
 						<div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-							{/* <Button
-								className="inline-flex items-center justify-center rounded-md bg-white hover:bg-slate-300 shadow transition-colors  focus-visible:outline-none focus-visible:ring-1 "
-								onClick={() => setCurrentPage("products")}>
-								Productos
-								<ShoppingBag className="ml-2 h-4 w-4" />
-							</Button> */}
 							<Button
-
 								className="inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1"
 								onClick={() =>
 									(window.location.href = "/about")
@@ -182,6 +178,7 @@ export default function ECommerceApp() {
 								Empresa familiar
 								<ArrowRight className="ml-2 h-4 w-4" />
 							</Button>
+							<AnimatedModalDemo />
 						</div>
 						<Link
 							id="toggle_nav"
@@ -263,9 +260,13 @@ export default function ECommerceApp() {
 												<h3 className="font-semibold">
 													{item.name}
 												</h3>
+
+												{/* precio del producto en el carrito */}
+
 												{/* <p className="text-sm text-muted-foreground">
 													${(item.price ?? 0).toFixed(2)}
 												</p> */}
+
 											</div>
 										</div>
 										<div className="flex items-center">
@@ -307,10 +308,12 @@ export default function ECommerceApp() {
 								))}
 								<div className="mt-6 border-t pt-4 relative">
 									<div className="flex justify-between items-center mb-4">
-										<span className="font-semibold">
+										{/* Total suma de los productos en el carrito */}
+
+										{/* <span className="font-semibold">
 											Total:
 										</span>
-										{/* <span className="font-bold">
+										<span className="font-bold">
 											${totalPrice.toFixed(2)}
 										</span> */}
 									</div>
@@ -330,7 +333,7 @@ export default function ECommerceApp() {
 										<Toaster />
 
 										<button
-											className="absolute top-2 right-2"
+											className="absolute top-2 right-2 z-50"
 											onClick={() => {
 												const dialog =
 													document.querySelector(
@@ -339,65 +342,67 @@ export default function ECommerceApp() {
 												dialog?.close();
 												window.location.href = "/";
 											}}>
-											<XIcon className="h-6 w-6" />
+											<XIcon className="h-8 w-8" />
 										</button>
 										{isLoading && (
 											<div className="absolute top-0 left-0 right-0 bottom-0 backdrop-blur bg-white/10 opacity-50 flex justify-center items-center z-50 rounded-md w-full h-full">
 												<span className="loader"></span>
 											</div>
 										)}
-										<div className="p-8 w-[80vw] xl:w-[35vw]">
-											<h2 className="text-2xl font-bold mb-4">
-												Enviar mi cotización
-											</h2>
-											<form
-												onSubmit={handleSubmit}
-												method="POST"
-												action="https://formsubmit.co/ezequielstom@gmail.com"
-												className="mt-8 gap-6 mx-2">
-												<input
-													type="hidden"
-													name="_subject"
-													value="📃 Santa María | 📩 Nuevo Mensaje!"
-												/>
-												<input
-													type="hidden"
-													name="_autoresponse"
-													value="
+										<main className="flex items-center justify-center border rounded-md overflow-hidden ">
+											<Card className="border-none w-full md:w-1/2 p-8">
+
+												<h2 className="text-2xl font-bold mb-4">
+													Enviar mi cotización
+												</h2>
+												<form
+													onSubmit={handleSubmit}
+													method="POST"
+													action="https://formsubmit.co/ezequielstom@gmail.com"
+													className="mt-8 gap-6 mx-2">
+													<input
+														type="hidden"
+														name="_subject"
+														value="📃 Santa María | 📩 Nuevo Mensaje!"
+													/>
+													<input
+														type="hidden"
+														name="_autoresponse"
+														value="
                             Tu mensaje ha sido recibido con éxito. Nos pondremos en contacto contigo a la brevedad. Gracias por tu confianza."></input>
 
-												<input
-													type="hidden"
-													name="_captcha"
-													value="false"
-												/>
-												{/*  aquí hay que armar el input cargando la info que viene desde el carrito */}
-												{/* <label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
-													Productos para cotizar
 													<input
-														type="text"
-														name="products"
-														className="p-2 my-1 w-full rounded-md border-gray-200 bg-black  text-sm text-white text-pretty shadow-sm active:bg-black focus:outline-none"
-														value={cart
-															.map(
-																(item) =>
-																	`${item.name
-																	} x ${item.quantity
-																	} - $${(
-																		(item.price ?? 0) *
-																		item.quantity
-																	).toFixed(
-																		2
-																	)}`
-															)
-															.join(", ")}
-														readOnly
+														type="hidden"
+														name="_captcha"
+														value="false"
 													/>
-												</label> */}
-												<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
+													{/*  aquí hay que armar el input cargando la info que viene desde el carrito */}
+													<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
+														Productos para cotizar
+														<input
+															type="text"
+															name="products"
+															className="p-2 my-1 w-full rounded-md border-gray-200 bg-black  text-sm text-white text-pretty shadow-sm active:bg-black focus:outline-none"
+															value={cart
+																.map(
+																	(item) =>
+																		`${item.name
+																		} x ${item.quantity
+																		} - $${(
+																			// (item.price ?? 0) * // precio del producto en el carrito
+																			item.quantity
+																		).toFixed(
+																			2
+																		)}`
+																)
+																.join(" ✓ ")}
+															readOnly
+														/>
+													</label>
+													{/* <label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
 													Total de los productos
 													seleccionados
-													{/* <input
+													<input
 														type="text"
 														name="total"
 														className="p-2 my-1 w-full rounded-md border-gray-200 bg-black  text-sm text-white text-pretty shadow-sm active:bg-black focus:outline-none"
@@ -405,63 +410,70 @@ export default function ECommerceApp() {
 															2
 														)}`}
 														readOnly
-													/> */}
-												</label>
+													/>
+												</label> */}
 
-												<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
-													Nombre
-													<input
-														type="text"
-														name="name"
-														id="name"
-														placeholder="Juan Pérez"
-														required
-														className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-													/>
-												</label>
-												<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
-													Empresa
-													<input
-														type="text"
-														name="company"
-														id="company"
-														placeholder="Plásticos Santa María"
-														required
-														className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-													/>
-												</label>
-												<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
-													Correo electrónico
-													<input
-														className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-														type="email"
-														name="email"
-														id="email"
-														required
-														placeholder="
-                            Correo electrónico"
-													/>
-												</label>
-												<fieldset>
-													<legend className="flex flex-col items-start justify-start text-sm py-2 font-medium text-gray-700 ">
-														Mensaje adicional
-														<textarea
-															name="message"
-															id="message"
+													<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
+														Nombre
+														<input
+															type="text"
+															name="name"
+															id="name"
+															placeholder="Juan Pérez"
 															required
-															className="w-full border-gray-200 rounded-md bg-white text-sm text-gray-700 shadow-sm p-2 max-h-[100px]"
-															placeholder="Mensaje"></textarea>
-													</legend>
-												</fieldset>
-												<div className="flex justify-center flex-col pt-4 gap-4">
-													<Button
-														type="submit"
-														className="inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1">
-														Enviar
-													</Button>
-												</div>
-											</form>
-										</div>
+															className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+														/>
+													</label>
+													<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
+														Empresa
+														<input
+															type="text"
+															name="company"
+															id="company"
+															placeholder="Plásticos Santa María"
+															required
+															className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+														/>
+													</label>
+													<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
+														Correo electrónico
+														<input
+															className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+															type="email"
+															name="email"
+															id="email"
+															required
+															placeholder="juan_perez@ejemplo.com"
+														/>
+													</label>
+													<fieldset>
+														<legend className="flex flex-col items-start justify-start text-sm py-2 font-medium text-gray-700 ">
+															Mensaje adicional
+															<textarea
+																name="message"
+																id="message"
+																required
+																className="w-full border-gray-200 rounded-md bg-white text-sm text-gray-700 shadow-sm p-2 max-h-[100px]"
+																placeholder="Quiero cotizar estos productos. Gracias">
+
+															</textarea>
+														</legend>
+													</fieldset>
+													<div className="flex justify-center flex-col pt-4 gap-4">
+														<Button
+															type="submit"
+															className="inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1">
+															Enviar
+														</Button>
+													</div>
+												</form>
+											</Card>
+											<Image
+												src={formImage}
+												alt="form"
+												className="hidden object-cover h-full md:block w-1/2 grayscale aspect-square opacity-75"
+											/>
+										</main>
 									</dialog>
 								</div>
 							</>
@@ -475,7 +487,7 @@ export default function ECommerceApp() {
 	return (
 		<div className="flex flex-col min-h-screen">
 			<Header
-				setCurrentPage={setCurrentPage}
+				// setCurrentPage={setCurrentPage}
 				cart={cart}
 				isCartOpen={isCartOpen}
 				setIsCartOpen={setIsCartOpen}

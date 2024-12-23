@@ -31,37 +31,34 @@ const ProductPage: React.FC<ProductPageProps> = ({ products, addToCart }) => {
                     <Image
                       width={300}
                       height={300}
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-48 object-cover mb-4 rounded-md border border-gray-200"
+                      src={product.image || '/placeholder.png'}
+                      alt={product.name || 'Producto'}
+                      className="w-full h-48 object-cover mb-2 rounded-md border border-gray-200"
                     />
                     <h2 className="text-xl font-bold mb-2">{product.name}</h2>
-                    <p className="text-muted-foreground flex text-sm gap-2 mb-2">
+                    <p className="text-muted-foreground flex text-sm gap-1 mb-2">
                       <span className="font-semibold">Categoría: </span>
                       {product.category}
                     </p>
-                    <p className="text-muted-foreground flex text-sm gap-2 mb-2">
+                    <p className="text-muted-foreground flex text-sm gap-1 mb-2">
                       <span className="font-semibold">Material: </span>
                       {product.material}
                     </p>
-                    <p className="text-muted-foreground flex text-sm gap-2 mb-2">
+                    <p className="text-muted-foreground flex text-sm gap-1 mb-2">
                       <span className="font-semibold">Capacidad: </span>
                       {product.capacity}
                     </p>
-                    <p className="text-muted-foreground flex text-sm gap-2 mb-2">
+                    <p className="text-muted-foreground flex text-sm gap-1 mb-2">
                       <span className="font-semibold">Color: </span>
                       {product.color}
                     </p>
-                    <p className="text-muted-foreground flex text-sm gap-2 mb-2">
+                    <p className="text-muted-foreground flex text-sm gap-1 mb-2">
                       <span className="font-semibold">Peso: </span>
                       {product.weight}
                     </p>
-                    <p className="text-muted-foreground flex text-sm gap-2 mb-2">
+                    <p className="text-muted-foreground flex text-sm gap-1 mb-2">
                       <span className="font-semibold">Compra mínima: </span>
                       {product.quantity}
-                    </p>
-                    <p className="text-muted-foreground flex text-sm gap-2 mb-2">
-                      {product.tag}
                     </p>
                     <Button
                       onClick={() => addToCart(product)}
