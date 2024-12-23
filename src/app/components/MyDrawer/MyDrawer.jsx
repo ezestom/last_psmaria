@@ -1,6 +1,7 @@
 import { Drawer } from "vaul";
 import { Button } from "../ui/button";
 import { Grip, Menu } from "lucide-react";
+import Link from "next/link";
 export function MyDrawer() {
 	return (
 		<Drawer.Root>
@@ -28,30 +29,30 @@ export function MyDrawer() {
 					</div>
 					<div className="p-4 bg-zinc-100 border-t border-zinc-200 mt-auto">
 						<div className="grid grid-cols-2 items-center gap-4  justify-center h-full w-full flex-wrap mx-auto">
-							<a
+							<Link
 								href="https://wa.me/+5492944625908"
 								target="_blank"
 								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 py-2 border-[--secondary]">
 								Whatsapp
-							</a>
-							<a
-								href="/about"
+							</Link>
+							<Link
+								href="/Linkbout"
 								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 py-2 border-[--secondary]">
 								Nosotros
-							</a>
-							<a
+							</Link>
+							<Link
 								href="/#products"
 								target="_blank"
 								className="cursor-pointer text-center relative
 								group overflow-hidden border-2 px-8 py-2
 								border-[--secondary]">
 								Productos
-							</a>
-							<a
+							</Link>
+							<Link
 								href="/#deals"
 								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 py-2 border-[--secondary]">
 								Ofertas
-							</a>
+							</Link>
 						</div>
 					</div>
 				</Drawer.Content>
