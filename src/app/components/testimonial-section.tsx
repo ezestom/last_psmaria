@@ -1,12 +1,6 @@
 import React from 'react';
+import { Subtitle } from './ui/subtitle';
 
-// Subtitle component
-const Subtitle = ({ subtitle, paragraph }: { subtitle: any, paragraph: any }) => (
-  <div className="text-center">
-    <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">{subtitle}</h2>
-    <p className="mt-4 text-gray-500">{paragraph}</p>
-  </div>
-);
 
 // Star SVG component to avoid repetition
 const StarIcon = () => (
@@ -63,7 +57,14 @@ const testimonials = [
 ];
 
 // Testimonial Card Component
-const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
+interface Testimonial {
+  text: string;
+  author: string;
+  img: string;
+  stars: number;
+}
+
+const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
   <div className="mb-8 sm:break-inside-avoid">
     <blockquote className="rounded-lg bg-gray-50 border border-gray-200 p-6 shadow-sm sm:p-8">
       <div className="flex items-center gap-4">

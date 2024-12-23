@@ -1,8 +1,6 @@
 import { Drawer } from "vaul";
 import { Button } from "../ui/button";
 import { Grip, Menu } from "lucide-react";
-import { AnimatedModalDemo } from "../animated-modal-demo";
-
 export function MyDrawer() {
 	return (
 		<Drawer.Root>
