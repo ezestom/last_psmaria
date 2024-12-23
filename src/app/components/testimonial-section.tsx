@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Subtitle component
-const Subtitle = ({ subtitle, paragraph }) => (
+const Subtitle = ({ subtitle, paragraph }: { subtitle: any, paragraph: any }) => (
   <div className="text-center">
     <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">{subtitle}</h2>
     <p className="mt-4 text-gray-500">{paragraph}</p>

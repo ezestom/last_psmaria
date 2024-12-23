@@ -59,7 +59,7 @@ export function AnimatedModalDemo() {
                         >
                            <Image
                               src={image}
-                              alt="bali images"
+                              alt="company images"
                               width="500"
                               height="500"
                               className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
@@ -67,7 +67,7 @@ export function AnimatedModalDemo() {
                         </motion.div>
                      ))}
                   </div>
-                  <div className="py-10 flex flex-wrap gap-x-4 gap-y-6 items-center justify-start max-w-sm mx-auto">
+                  <div className="py-10 flex flex-wrap gap-x-4 gap-y-6 items-center justify-start mx-auto text-center">
                      <div className="flex  items-center justify-center">
 
                         <span className="text-neutral-700 dark:text-neutral-300 text-sm">
