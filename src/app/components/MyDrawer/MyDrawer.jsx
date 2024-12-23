@@ -20,10 +20,10 @@ export function MyDrawer() {
 						<div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full  mb-8" />
 						<div className=" mx-auto">
 							<Drawer.Title className="text-4xl mb-4 text-center font-bold">
-								Plásticos Santa María
+								Plásticos <br /> <span className="text-5xl font-bold">Santa María</span>
 							</Drawer.Title>
 							<Drawer.Description className="text-center font-semibold text-lg">
-								Tu socio en plásticos
+								Tu mejor opción en envases plásticos
 							</Drawer.Description>
 						</div>
 					</div>

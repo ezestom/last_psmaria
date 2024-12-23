@@ -12,6 +12,8 @@
 
 @media (max-width: 768px) {
 	#hero {
-		background-image: none;
+		background-size: cover;
+		height: 100vh;
+		background-position: right;
 	}
 }

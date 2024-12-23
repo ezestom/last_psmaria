@@ -1,6 +1,7 @@
 import React from 'react';
 import { Subtitle } from './ui/subtitle';
 import Image from 'next/image';
+import avatar from '/public/avatar.webp';
 
 
 // Star SVG component to avoid repetition
@@ -22,37 +23,37 @@ const testimonials = [
   {
     text: "Excelente servicio, muy buena calidad y precios accesibles. Recomiendo 100%.",
     author: "Envases pirulo",
-    img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
+    img: avatar,
     stars: 5
   },
   {
     text: "Muy buena atención, los envases llegaron en tiempo y forma. Muy recomendable.",
     author: "Envases pirulo 2",
-    img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
+    img: avatar,
     stars: 5
   },
   {
     text: "Los envases son de muy buena calidad, y el servicio es excelente. 100% recomendable.",
     author: "Envases pirulo 3",
-    img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
+    img: avatar,
     stars: 5
   },
   {
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit esse delectus, maiores fugit, reiciendis culpa inventore sint accusantium libero dolore eos quasi a ex aliquam molestiae.",
     author: "Paul Starr",
-    img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
+    img: avatar,
     stars: 5
   },
   {
     text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate officia natus blanditiis rerum incidunt ex autem repudiandae doloribus eveniet quia?",
     author: "Paul Starr",
-    img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
+    img: avatar,
     stars: 5
   },
   {
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit esse delectus, maiores fugit, reiciendis culpa inventore sint accusantium libero dolore eos quasi a ex aliquam molestiae.",
     author: "Paul Starr",
-    img: "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
+    img: avatar,
     stars: 5
   },
 ];
@@ -70,7 +71,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
     <blockquote className="rounded-lg bg-gray-50 border border-gray-200 p-6 shadow-sm sm:p-8">
       <div className="flex items-center gap-4">
         <Image
-          alt={`Avatar de ${testimonial.author}`}
+          alt={`Person de ${testimonial.author}`}
           src={testimonial.img}
           className="size-14 rounded-full object-cover"
         />
