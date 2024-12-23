@@ -1,12 +1,7 @@
 #hero {
-	background: linear-gradient(
-			180deg,
-			rgba(0, 0, 0, 0.1) 0%,
-			rgba(0, 0, 0, 0) 75%
-		),
-		url("../../public/hero-image.png");
-	background-size: contain;
-	background-position: center;
+	background-image: url("../../public/hero-image.png");
+	background-size: cover;
+	background-position: right;
 	background-repeat: no-repeat;
 }
 

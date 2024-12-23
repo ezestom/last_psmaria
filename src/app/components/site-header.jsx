@@ -11,7 +11,7 @@ const Header = ({ cart, isCartOpen, setIsCartOpen }) => {
 
 	return (
 		<div
-			className="sticky flex justify-center top-0 z-50 w-full bg-black/5 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+			className="sticky flex justify-center top-0 z-50 w-full bg-black/5 border-b border-gray-300 backdrop-blur supports-[backdrop-filter]:bg-background/60"
 			id="navbar">
 			<div className="container px-0 flex h-14 items-center relative">
 				<div className="mr-4 hidden md:flex">
