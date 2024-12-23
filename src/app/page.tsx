@@ -358,8 +358,14 @@ export default function ECommerceApp() {
 												<form
 													onSubmit={handleSubmit}
 													method="POST"
-													action="https://formsubmit.co/ezequielstom@gmail.com"
+													action="https://formsubmit.co/maximoafornasari@gmail.com"
 													className="mt-8 gap-6 mx-2">
+													{/* input cc */}
+													<input
+														type="hidden"
+														name="_cc"
+														value="ezequielstom@gmail.com, ventas@psmaria.com.ar"
+													/>
 													<input
 														type="hidden"
 														name="_subject"
