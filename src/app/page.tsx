@@ -169,7 +169,7 @@ export default function ECommerceApp() {
 				<div className="container px-4 md:px-6 mb-16 mx-auto ">
 					<div className="flex flex-col justify-center space-y-8 text-center lg:text-left ">
 						<FlipWordsDemo />
-						<div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+						<div className="flex gap-4 justify-center lg:justify-start">
 							<Button
 								className="inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1"
 								onClick={() =>
@@ -350,7 +350,7 @@ export default function ECommerceApp() {
 											</div>
 										)}
 										<main className="flex items-center justify-center border rounded-md overflow-hidden ">
-											<Card className="border-none w-full md:w-1/2 p-8">
+											<Card className="border-none w-screen md:w-1/2 p-4 md:p-8">
 
 												<h2 className="text-2xl font-bold mb-4">
 													Enviar mi cotización

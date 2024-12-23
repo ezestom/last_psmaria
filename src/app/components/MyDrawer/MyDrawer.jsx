@@ -1,6 +1,7 @@
 import { Drawer } from "vaul";
 import { Button } from "../ui/button";
 import { Grip, Menu } from "lucide-react";
+import { AnimatedModalDemo } from "../animated-modal-demo";
 
 export function MyDrawer() {
 	return (
@@ -30,28 +31,28 @@ export function MyDrawer() {
 					<div className="p-4 bg-zinc-100 border-t border-zinc-200 mt-auto">
 						<div className="grid grid-cols-2 items-center gap-4  justify-center h-full w-full flex-wrap mx-auto">
 							<a
-								href="https://wa.me/59897477434"
+								href="https://wa.me/+5492944625908"
 								target="_blank"
 								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 py-2 border-[--secondary]">
 								Whatsapp
 							</a>
 							<a
-								href="https://www.instagram.com/lachingadamvd"
+								href="/about"
+								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 py-2 border-[--secondary]">
+								Nosotros
+							</a>
+							<a
+								href="/#products"
 								target="_blank"
 								className="cursor-pointer text-center relative
 								group overflow-hidden border-2 px-8 py-2
 								border-[--secondary]">
-								Instagram
+								Productos
 							</a>
 							<a
-								href="#"
+								href="/#deals"
 								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 py-2 border-[--secondary]">
-								Pedir presupuesto
-							</a>
-							<a
-								href="#"
-								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 py-2 border-[--secondary]">
-								Contacto
+								Ofertas
 							</a>
 						</div>
 					</div>
