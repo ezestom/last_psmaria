@@ -30,41 +30,42 @@ const DealsSection: React.FC<DealsSectionProps> = ({ deals, addToCart }) => {
           {filteredDeals.length === 0 ? (
             <p className="text-center text-gray-500">No hay ofertas disponibles en este momento.</p>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-1 md:gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
               {/* Mapeo de productos filtrados */}
               {displayedDeals.map((deal) => (
                 <div key={deal.id}>
-                  <Card>
-                    <CardContent className="p-4">
+                  <Card className='h-full'>
+                    <CardContent className="p-2 md:p-4 h-full flex-1 flex flex-col justify-between">
                       <Image
                         width={300}
                         height={300}
                         src={deal.image || '/placeholder.png'}
                         alt={deal.name || 'Producto'}
-                        className="w-full h-48 object-cover mb-2 rounded-md border border-gray-200"
+                        className="w-full h-48 object-cover mb-1 md:mb-2 rounded-md border border-gray-200"
                       />
-                      <h2 className="text-xl font-bold mb-2">{deal.name}</h2>
-                      <p className="text-muted-foreground flex text-sm gap-1 mb-2">
+                      <h2 className="text-base md:text-xl font-bold mb-1 md:mb-2">{deal.name}</h2>
+                      <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                         <span className="font-semibold">Categoría: </span>
                         {deal.category}
                       </p>
-                      <p className="text-muted-foreground flex text-sm gap-1 mb-2">
+                      <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                         <span className="font-semibold">Material: </span>
                         {deal.material}
                       </p>
-                      <p className="text-muted-foreground flex text-sm gap-1 mb-2">
+                      <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                         <span className="font-semibold">Capacidad: </span>
                         {deal.capacity}
                       </p>
-                      <p className="text-muted-foreground flex text-sm gap-1 mb-2">
+                      <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                         <span className="font-semibold">Color: </span>
                         {deal.color}
                       </p>
-                      <p className="text-muted-foreground flex text-sm gap-1 mb-2">
+                      <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                         <span className="font-semibold">Peso: </span>
                         {deal.weight}
                       </p>
-                      <p className="text-muted-foreground flex text-sm gap-1 mb-2">
+                      <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                         <span className="font-semibold">Compra mínima: </span>
                         {deal.quantity}
                       </p>

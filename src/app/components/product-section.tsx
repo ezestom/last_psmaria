@@ -23,40 +23,40 @@ const ProductPage: React.FC<ProductPageProps> = ({ products, addToCart }) => {
         <div className="container px-4 md:px-6">
           <Subtitle subtitle="Productos" paragraph="Lista completa de nuestros productos" />
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-1 md:gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {displayedProducts.map((product) => (
               <div key={product.id}>
-                <Card>
-                  <CardContent className="p-4">
+                <Card className='h-full '>
+                  <CardContent className="p-2 md:p-4 h-full flex-1 flex flex-col justify-between">
                     <Image
                       width={300}
                       height={300}
                       src={product.image || '/placeholder.png'}
                       alt={product.name || 'Producto'}
-                      className="w-full h-48 object-cover mb-2 rounded-md border border-gray-200"
+                      className="w-full h-48 object-cover mb-1 md:mb-2 rounded-md border border-gray-200"
                     />
-                    <h2 className="text-xl font-bold mb-2">{product.name}</h2>
-                    <p className="text-muted-foreground flex text-sm gap-1 mb-2">
+                    <h2 className="text-base md:text-xl font-bold mb-1 md:mb-2">{product.name}</h2>
+                    <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                       <span className="font-semibold">Categoría: </span>
                       {product.category}
                     </p>
-                    <p className="text-muted-foreground flex text-sm gap-1 mb-2">
+                    <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                       <span className="font-semibold">Material: </span>
                       {product.material}
                     </p>
-                    <p className="text-muted-foreground flex text-sm gap-1 mb-2">
+                    <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                       <span className="font-semibold">Capacidad: </span>
                       {product.capacity}
                     </p>
-                    <p className="text-muted-foreground flex text-sm gap-1 mb-2">
+                    <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                       <span className="font-semibold">Color: </span>
                       {product.color}
                     </p>
-                    <p className="text-muted-foreground flex text-sm gap-1 mb-2">
+                    <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                       <span className="font-semibold">Peso: </span>
                       {product.weight}
                     </p>
-                    <p className="text-muted-foreground flex text-sm gap-1 mb-2">
+                    <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                       <span className="font-semibold">Compra mínima: </span>
                       {product.quantity}
                     </p>

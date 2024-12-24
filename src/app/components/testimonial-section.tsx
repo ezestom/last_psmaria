@@ -1,6 +1,6 @@
 import React from 'react';
 import { Subtitle } from './ui/subtitle';
-import Image from 'next/image';
+import Image,{ StaticImageData } from 'next/image';
 import avatar from '/public/avatar.webp';
 
 
@@ -62,7 +62,7 @@ const testimonials = [
 interface Testimonial {
   text: string;
   author: string;
-  img: string;
+  img: StaticImageData;
   stars: number;
 }
 
