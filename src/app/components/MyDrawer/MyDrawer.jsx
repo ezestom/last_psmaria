@@ -32,25 +32,25 @@ export function MyDrawer() {
 							<Link
 								href="https://wa.me/+5492944625908"
 								target="_blank"
-								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 py-2 border-[--secondary]">
+								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 rounded-md bg-black text-white hover:bg-white hover:text-black transition py-2 border-[--secondary]">
 								Whatsapp
 							</Link>
 							<Link
 								href="/Linkbout"
-								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 py-2 border-[--secondary]">
+								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 rounded-md bg-black text-white hover:bg-white hover:text-black transition py-2 border-[--secondary]">
 								Nosotros
 							</Link>
 							<Link
 								href="/#products"
 								target="_blank"
 								className="cursor-pointer text-center relative
-								group overflow-hidden border-2 px-8 py-2
+								group overflow-hidden border-2 px-8 rounded-md bg-black text-white hover:bg-white hover:text-black transition py-2
 								border-[--secondary]">
 								Productos
 							</Link>
 							<Link
 								href="/#deals"
-								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 py-2 border-[--secondary]">
+								className="cursor-pointer text-center relative group overflow-hidden border-2 px-8 rounded-md bg-black text-white hover:bg-white hover:text-black transition py-2 border-[--secondary]">
 								Ofertas
 							</Link>
 						</div>

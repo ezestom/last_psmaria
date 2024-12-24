@@ -71,7 +71,7 @@ const DealsSection: React.FC<DealsSectionProps> = ({ deals, addToCart }) => {
                       </p>
                       <Button
                         onClick={() => addToCart(deal)}
-                        className="w-full gap-1 inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1"
+                        className="text-xs md:text-sm w-full gap-1 inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1"
                       >
                         Agregar al carrito
                         <span className="text-xs"> - para cotizar </span>
