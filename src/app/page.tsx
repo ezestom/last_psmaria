@@ -184,7 +184,7 @@ export default function ECommerceApp() {
 							id="toggle_nav"
 							className="fixed max-w-10 right-5 bottom-5 z-50 hover:scale-105 transition"
 							target="_blank"
-							href="https://wa.me/+5492944625908">
+							href="https://wa.me/+5491151083838">
 							<Image
 								src={whatsapp}
 								alt="whatsapp logo"
