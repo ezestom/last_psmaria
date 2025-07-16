@@ -93,9 +93,7 @@ const CompanyLogoSection = () => {
 
 
         <article className="flex flex-col overflow-x-hidden relative" id='brands-container'>
-          <div
-            className="-z-10 absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(rebeccapurple_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_10%,transparent_100%)]">
-          </div>
+
           <div className="flex flex-row gap-2 p-2"
             id='brands-row'>
             <div className="flex flex-row  gap-12">
@@ -108,7 +106,7 @@ const CompanyLogoSection = () => {
                   <div className="p-2 flex  grayscale transition duration-200 hover:grayscale-0 hover:scale-105 ">
                     <Image
                       alt={`${company.name} logo`}
-                      className="overflow-hidden object-contain object-center drop-shadow-sm max-w-24 md:max-w-36   max-h-24"
+                      className="overflow-hidden object-contain object-center drop-shadow-sm max-w-24 md:max-w-40"
                       src={company.logo}
                     />
                   </div>

@@ -1,5 +1,11 @@
 #hero {
-	background-image: url("../../public/hero-image.png");
+	background-image: linear-gradient(
+			to right,
+			rgba(255, 255, 255, 0.5),
+			rgba(255, 255, 255, 0)
+		),
+		url("/plastic_factory.jpg");
+	height: 100vh;
 	background-size: cover;
 	background-position: right;
 	background-repeat: no-repeat;

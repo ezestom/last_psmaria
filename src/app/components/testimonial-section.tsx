@@ -21,38 +21,38 @@ const StarIcon = () => (
 // Testimonial data array
 const testimonials = [
   {
-    text: "Excelente servicio, muy buena calidad y precios accesibles. Recomiendo 100%.",
-    author: "Envases pirulo",
+    text: "La calidad y precisión en las piezas que nos proveen son fundamentales para nuestra línea de producción. Su consistencia y compromiso con los plazos de entrega son impecables. Un socio estratégico para nosotros.",
+    author: "SC Johnson",
     img: avatar,
     stars: 5
   },
   {
-    text: "Muy buena atención, los envases llegaron en tiempo y forma. Muy recomendable.",
-    author: "Envases pirulo 2",
+    text: "Como sus proveedores de polímeros, valoramos enormemente su profesionalismo y claridad. Es un placer trabajar con una empresa organizada y cumplidora. Una relación comercial sólida y de confianza.",
+    author: "Qualli Química",
     img: avatar,
     stars: 5
   },
   {
-    text: "Los envases son de muy buena calidad, y el servicio es excelente. 100% recomendable.",
-    author: "Envases pirulo 3",
+    text: "Llevamos años confiando en sus soluciones para el sector agroindustrial. La resistencia y durabilidad de sus plásticos son excelentes. Muy buena atención técnica y predisposición en cada consulta.",
+    author: "Huagro",
     img: avatar,
     stars: 5
   },
   {
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit esse delectus, maiores fugit, reiciendis culpa inventore sint accusantium libero dolore eos quasi a ex aliquam molestiae.",
-    author: "Paul Starr",
+    text: "Requeríamos piezas a medida con especificaciones complejas y superaron nuestras expectativas. El equipo de desarrollo nos acompañó en todo el proceso, desde el diseño del molde hasta el producto final.",
+    author: "Victor Eduardo Simó S.A.",
     img: avatar,
     stars: 5
   },
   {
-    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate officia natus blanditiis rerum incidunt ex autem repudiandae doloribus eveniet quia?",
-    author: "Paul Starr",
+    text: "Siempre cumplen con las especificaciones técnicas y los tiempos de entrega pactados, algo que es clave en la dinámica industria del packaging. La calidad de sus envases y tapas es consistentemente alta.",
+    author: "Fadep Envases",
     img: avatar,
     stars: 5
   },
   {
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit esse delectus, maiores fugit, reiciendis culpa inventore sint accusantium libero dolore eos quasi a ex aliquam molestiae.",
-    author: "Paul Starr",
+    text: "Coordinar la logística con ellos es un proceso eficiente. Su excelente organización interna facilita nuestra operativa, asegurando que la mercadería llegue siempre a destino en tiempo y forma.",
+    author: "TNT Logística",
     img: avatar,
     stars: 5
   },

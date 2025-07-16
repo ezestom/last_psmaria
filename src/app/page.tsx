@@ -19,7 +19,7 @@ import { TimeLineScroll } from "@/app/components/ui/time-line-scroll";
 import { toast, Toaster } from "sonner";
 import "../app/components/Form/Form.css";
 import whatsapp from "/public/icons/whatsappColor.svg";
-import formImage from "/public/factory.jpg";
+import formImage from "/public/hero.png";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -196,7 +196,7 @@ export default function ECommerceApp() {
 					</div>
 				</div>
 			</section>
-
+			<div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
 
 
 			<ProductSection products={products} addToCart={addToCart} />
@@ -364,7 +364,7 @@ export default function ECommerceApp() {
 													<input
 														type="hidden"
 														name="_cc"
-														value="ezequielstom@gmail.com, ventas@psmaria.com.ar"
+														value="ezequielstom@gmail.com"
 													/>
 													<input
 														type="hidden"
@@ -477,7 +477,7 @@ export default function ECommerceApp() {
 											<Image
 												src={formImage}
 												alt="form"
-												className="hidden object-cover h-full md:block w-1/2 grayscale aspect-square opacity-75"
+												className="hidden object-cover h-full md:block w-1/2 grayscale aspect-square opacity-50"
 											/>
 										</main>
 									</dialog>

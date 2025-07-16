@@ -22,9 +22,9 @@ const features = [
         <line x1="12" y1="16" x2="12.01" y2="16" />
       </svg>
     ),
-    title: "Servicio al cliente confiable",
+    title: "Asesoramiento Técnico Integral",
     description:
-      "Nuestro equipo de soporte dedicado está aquí para garantizar que sus preguntas sean respondidas y sus necesidades satisfechas las 24 horas del día.",
+      "Ofrecemos un acompañamiento completo en cada etapa. Nuestro equipo técnico-comercial lo asesorará en la selección de materiales, desarrollo de matricería y optimización de su producto.",
   },
   {
     icon: (
@@ -43,9 +43,9 @@ const features = [
         <polyline points="20 6 9 17 4 12" />
       </svg>
     ),
-    title: "Cotización rápida",
+    title: "Cotizaciones Competitivas por Volumen",
     description:
-      "Reciba una cotización en minutos. No se requiere tarjeta de crédito. No se requiere compromiso. Contacte con nosotros y le responderemos a la brevedad con la mejor cotización del mercado.",
+      "Solicite su cotización para producciones a gran escala. Le brindaremos una propuesta ágil, detallada y optimizada para sus volúmenes de compra, garantizando el mejor precio de fábrica.",
   },
   {
     icon: (
@@ -66,9 +66,9 @@ const features = [
         <line x1="12" y1="15" x2="12" y2="3" />
       </svg>
     ),
-    title: "Producimos bajo demanda",
+    title: "Fabricación a Medida y Bajo Demanda",
     description:
-      "Producimos bajo demanda, lo que significa que no producimos nada hasta que usted lo pida. Esto significa que no hay exceso de inventario y podemos mantener nuestros costos bajos.",
+      "Operamos con un modelo de producción a medida y bajo demanda. Esto nos da máxima flexibilidad para la personalización de sus productos y nos permite eliminar costos de inventario.",
   },
 ];
 

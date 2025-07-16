@@ -1,4 +1,42 @@
-import img1 from "/public/band.jpg";
+import img1 from "/public/products/bidon_5.webp";
+import img2 from "/public/products/bidon_institucional.webp";
+import img3 from "/public/products/limpiador_cremoso.webp";
+import img4 from "/public/products/destapa.webp";
+import img5 from "/public/products/cera_1.webp";
+import img6 from "/public/products/gatillo_pvc.webp";
+import img7 from "/public/products/gatillo_pead.webp";
+import img8 from "/public/products/gatillo_norte.webp";
+import img9 from "/public/products/lavandina_1.webp";
+import img10 from "/public/products/lavandina_2.webp";
+import img11 from "/public/products/talquera_250.webp";
+import img12 from "/public/products/talquera_250.webp";
+import img13 from "/public/products/repelente.webp";
+import img14 from "/public/products/cuadrado_100.webp";
+import img15 from "/public/products/gel_2.webp";
+import img16 from "/public/products/cilindrico_1.webp";
+import img17 from "/public/products/anillado_500.webp";
+import img18 from "/public/products/pastilla_grande.webp";
+import img19 from "/public/products/pastilla_chica.webp";
+import img20 from "/public/products/hexagonal.webp";
+import img21 from "/public/products/suavizante_2.webp";
+import img22 from "/public/products/suavizante_4.webp";
+import img23 from "/public/products/jabonera_cilindrica.webp";
+import img24 from "/public/products/jabonera_oval.webp";
+import img25 from "/public/products/suavizante_1.webp";
+import img26 from "/public/products/anillado_500.webp";
+import img27 from "/public/products/boya_satelite_grande.webp";
+import img28 from "/public/products/boya_satelite_chica.webp";
+import img29 from "/public/products/boya_hongo.webp";
+import img30 from "/public/products/leve_100.webp";
+import img31 from "/public/products/leve_200.webp";
+import img32 from "/public/products/multiuso.webp";
+import img33 from "/public/products/bidon_institucional.webp";
+
+
+
+
+
+
 import { Product } from "@/app/types";
 
 export const products: Product[] = [
@@ -10,14 +48,14 @@ export const products: Product[] = [
 		material: "PEAD",
 		capacity: "5 lts",
 		color: "Natural/Blanco/Amarillo",
-		weight: 120,
+		weight: 125, // Actualizado de 120
 		quantity: 1500,
 		isOffer: false,
 	},
 	{
 		id: 2,
 		name: "Bidon institucional",
-		image: img1,
+		image: img2,
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "5 lts",
@@ -29,7 +67,7 @@ export const products: Product[] = [
 	{
 		id: 3,
 		name: "Limpiador cremoso",
-		image: img1,
+		image: img3,
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "650 cc",
@@ -41,7 +79,7 @@ export const products: Product[] = [
 	{
 		id: 4,
 		name: "Env destapacañerías 1 lt (Tapa Común)",
-		image: img1,
+		image: img4,
 		category: "Limpieza",
 		material: "PEAD",
 		capacity: "1 lt",
@@ -53,7 +91,7 @@ export const products: Product[] = [
 	{
 		id: 5,
 		name: "Env cera x 1 lt",
-		image: img1,
+		image: img5,
 		category: "Limpieza",
 		material: "PEAD",
 		capacity: "1 lt",
@@ -65,7 +103,7 @@ export const products: Product[] = [
 	{
 		id: 6,
 		name: "Gatillo PVC x 500 cc",
-		image: img1,
+		image: img6,
 		category: "Limpieza",
 		material: "PVC",
 		capacity: "500 cc",
@@ -77,7 +115,7 @@ export const products: Product[] = [
 	{
 		id: 7,
 		name: "Gatillo PEAD x 500 cc",
-		image: img1,
+		image: img7,
 		category: "Limpieza",
 		material: "PEAD",
 		capacity: "500 cc",
@@ -89,7 +127,7 @@ export const products: Product[] = [
 	{
 		id: 8,
 		name: "Gatillo Norte x 500 cc",
-		image: img1,
+		image: img8,
 		category: "Limpieza",
 		material: "PEAD",
 		capacity: "500 cc",
@@ -101,7 +139,7 @@ export const products: Product[] = [
 	{
 		id: 9,
 		name: "Env Lavandina x 1 lt",
-		image: img1,
+		image: img9,
 		category: "Limpieza",
 		material: "PEAD",
 		capacity: "1 lt",
@@ -113,7 +151,7 @@ export const products: Product[] = [
 	{
 		id: 10,
 		name: "Env Lavandina x 2 lt",
-		image: img1,
+		image: img10,
 		category: "Limpieza",
 		material: "PEAD",
 		capacity: "2 lt",
@@ -125,7 +163,7 @@ export const products: Product[] = [
 	{
 		id: 11,
 		name: "Talquera polvo x 250 grs",
-		image: img1,
+		image: img11,
 		category: "Jardin",
 		material: "PEAD",
 		capacity: "250 g",
@@ -137,7 +175,7 @@ export const products: Product[] = [
 	{
 		id: 12,
 		name: "Talquera polvo x 1 kg",
-		image: img1,
+		image: img12,
 		category: "Jardin",
 		material: "PEAD",
 		capacity: "1 kg",
@@ -149,7 +187,7 @@ export const products: Product[] = [
 	{
 		id: 13,
 		name: "Env repelente x 200 grs",
-		image: img1,
+		image: img13,
 		category: "Cosmetica",
 		material: "PEAD",
 		capacity: "200 g",
@@ -161,7 +199,7 @@ export const products: Product[] = [
 	{
 		id: 14,
 		name: "Env cuadrado x 100 cc",
-		image: img1,
+		image: img14,
 		category: "Cosmetica",
 		material: "PEAD/PP",
 		capacity: "120 cc",
@@ -173,7 +211,7 @@ export const products: Product[] = [
 	{
 		id: 15,
 		name: "Gel x 500 cc",
-		image: img1,
+		image: img15,
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "500 cc",
@@ -185,7 +223,7 @@ export const products: Product[] = [
 	{
 		id: 16,
 		name: "Env cilindrico x 1 lt",
-		image: img1,
+		image: img16,
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "1 lt",
@@ -197,7 +235,7 @@ export const products: Product[] = [
 	{
 		id: 17,
 		name: "Env anillado x 500 cc",
-		image: img1,
+		image: img17,
 		category: "Limpieza/Jardin",
 		material: "PVC",
 		capacity: "500 cc",
@@ -209,7 +247,7 @@ export const products: Product[] = [
 	{
 		id: 18,
 		name: "Capsula pastilla cloro grande",
-		image: img1,
+		image: img18,
 		category: "Piscinas",
 		material: "PEAD",
 		capacity: "5 u",
@@ -221,7 +259,7 @@ export const products: Product[] = [
 	{
 		id: 19,
 		name: "Capsula pastilla cloro chica",
-		image: img1,
+		image: img19,
 		category: "Piscinas",
 		material: "PEAD",
 		capacity: "5 u",
@@ -233,7 +271,7 @@ export const products: Product[] = [
 	{
 		id: 20,
 		name: "Env Hexagonal PVC x 350 cc",
-		image: img1,
+		image: img20,
 		category: "Cosmetica",
 		material: "PVC",
 		capacity: "350 cc",
@@ -245,7 +283,7 @@ export const products: Product[] = [
 	{
 		id: 21,
 		name: "Env suavizante x 2 lts",
-		image: img1,
+		image: img21,
 		category: "Limpieza",
 		material: "PEAD",
 		capacity: "2 lts",
@@ -257,7 +295,7 @@ export const products: Product[] = [
 	{
 		id: 22,
 		name: "Env suavizante x 4 lts",
-		image: img1,
+		image: img22,
 		category: "Limpieza",
 		material: "PEAD",
 		capacity: "4 lts",
@@ -269,7 +307,7 @@ export const products: Product[] = [
 	{
 		id: 23,
 		name: "Jabonera cilindrica x 250 cc",
-		image: img1,
+		image: img23,
 		category: "Cosmetica",
 		material: "PVC",
 		capacity: "250 cc",
@@ -281,7 +319,7 @@ export const products: Product[] = [
 	{
 		id: 24,
 		name: "Jabonera Oval x 250 cc",
-		image: img1,
+		image: img24,
 		category: "Cosmetica",
 		material: "PVC",
 		capacity: "250 cc",
@@ -293,7 +331,7 @@ export const products: Product[] = [
 	{
 		id: 25,
 		name: "Env suavizante x 1 lt",
-		image: img1,
+		image: img25,
 		category: "Limpieza",
 		material: "PEAD",
 		capacity: "1 lts",
@@ -305,7 +343,7 @@ export const products: Product[] = [
 	{
 		id: 26,
 		name: "Env anillado x 1 lt",
-		image: img1,
+		image: img26,
 		category: "Limpieza/Jardin",
 		material: "PEAD",
 		capacity: "1 lt",
@@ -317,7 +355,7 @@ export const products: Product[] = [
 	{
 		id: 27,
 		name: "Boya Satelite Grande",
-		image: img1,
+		image: img27,
 		category: "Piscinas",
 		material: "PEAD",
 		capacity: "5 u",
@@ -329,19 +367,19 @@ export const products: Product[] = [
 	{
 		id: 28,
 		name: "Boya Satelite Chica",
-		image: img1,
+		image: img28,
 		category: "Piscinas",
 		material: "PEAD",
 		capacity: "5 u",
 		color: "Blanco / Celeste",
 		weight: 215,
 		quantity: 4000,
-		isOffer: false,
+		isOffer: true, // Actualizado a true
 	},
 	{
 		id: 29,
 		name: "Boya Hongo",
-		image: img1,
+		image: img29,
 		category: "Piscinas",
 		material: "PEAD",
 		capacity: "5 u",
@@ -353,7 +391,7 @@ export const products: Product[] = [
 	{
 		id: 30,
 		name: "Env Leve x 100 cc",
-		image: img1,
+		image: img30,
 		category: "Varios",
 		material: "PEAD",
 		capacity: "100 cc",
@@ -365,7 +403,7 @@ export const products: Product[] = [
 	{
 		id: 31,
 		name: "Env Leve x 200 cc",
-		image: img1,
+		image: img31,
 		category: "Varios",
 		material: "PEAD",
 		capacity: "200 cc",
@@ -377,7 +415,7 @@ export const products: Product[] = [
 	{
 		id: 32,
 		name: "Env Acido / Multiuso",
-		image: img1,
+		image: img32,
 		category: "Limpieza",
 		material: "PEAD",
 		capacity: "10 lts",
@@ -389,62 +427,13 @@ export const products: Product[] = [
 	{
 		id: 33,
 		name: "Bidon economico",
-		image: img1,
+		image: img33,
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "10 lts",
 		color: "Natural/Blanco/Amarillo",
 		weight: 220,
 		quantity: 500,
-
-		isOffer: false,
-	},
-	{
-		id: 34,
-		name: "Envase PET x 1L",
-		image: img1,
-		category: "Limpieza/Bebidas",
-		material: "PET",
-		capacity: "1 lt",
-		color: "Cristal",
-		weight: "Std",
-		quantity: 5000,
-		isOffer: false,
-	},
-	{
-		id: 35,
-		name: "Envase PET x 500cc",
-		image: img1,
-		category: "Limpieza/Bebidas",
-		material: "PET",
-		capacity: "500 cc",
-		color: "Cristal",
-		weight: "Std",
-		quantity: 5000,
-		isOffer: false,
-	},
-	{
-		id: 36,
-		name: "Envase PET x 250cc",
-		image: img1,
-		category: "Limpieza/Bebidas",
-		material: "PET",
-		capacity: "250 cc",
-		color: "Cristal",
-		weight: "Std",
-		quantity: 5000,
-		isOffer: false,
-	},
-	{
-		id: 37,
-		name: "Envase PET x 100cc",
-		image: img1,
-		category: "Limpieza/Bebidas",
-		material: "PET",
-		capacity: "100 cc",
-		color: "Cristal",
-		weight: "Std",
-		quantity: 5000,
 		isOffer: false,
 	},
 ];
