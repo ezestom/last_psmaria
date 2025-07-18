@@ -9,6 +9,20 @@
 	background-size: cover;
 	background-position: right;
 	background-repeat: no-repeat;
+	-webkit-mask-image: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 1) 0%,
+		rgba(0, 0, 0, 1) 75%,
+		rgba(0, 0, 0, 0) 100%
+	);
+	mask-image: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 1) 0%,
+		rgba(0, 0, 0, 1) 75%,
+		rgba(0, 0, 0, 0) 100%
+	);
+
+	background-color: #fff; /* fallback */
 }
 
 @media (max-width: 768px) {

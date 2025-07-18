@@ -180,24 +180,23 @@ export default function ECommerceApp() {
 							</Button>
 							<AnimatedModalDemo />
 						</div>
-						<Link
-							id="toggle_nav"
-							className="fixed max-w-10 right-5 bottom-5 z-50 hover:scale-105 transition"
-							target="_blank"
-							href="https://wa.me/+5491151083838">
-							<Image
-								src={whatsapp}
-								alt="whatsapp logo"
-								width={200}
-								height={200}
-								className="drop-shadow-lg"
-							/>
-						</Link>
 					</div>
 				</div>
 			</section>
-			<div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
-
+			<Link
+				id="toggle_nav"
+				className="fixed max-w-10 right-5 bottom-5 z-50 hover:scale-105 transition"
+				target="_blank"
+				href="https://wa.me/+5491151083838">
+				<Image
+					src={whatsapp}
+					alt="whatsapp logo"
+					width={200}
+					height={200}
+					className="drop-shadow-lg"
+				/>
+			</Link>
+			<div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
 
 			<ProductSection products={products} addToCart={addToCart} />
 
