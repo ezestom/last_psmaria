@@ -11,7 +11,7 @@ const Header = ({ cart, isCartOpen, setIsCartOpen }) => {
 
 	return (
 		<div
-			className="sticky flex justify-center top-0 z-50 w-full bg-black/5 border-b border-gray-300 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+			className="sticky flex justify-center top-0 z-50 w-full bg-black/5 border-b border-gray-300 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-2"
 			id="navbar">
 			<div className="container px-0 flex h-14 items-center relative">
 				<div className="mr-4 hidden md:flex">
@@ -89,7 +89,7 @@ const Header = ({ cart, isCartOpen, setIsCartOpen }) => {
 								onClick={() => setIsCartOpen(!isCartOpen)}>
 								<ShoppingCartIcon className="h-4 w-4 " />
 								{totalItems > 0 && (
-									<span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold rounded-full h-5 w-5 flex items-center bg-black text-white justify-center">
+									<span className="absolute -top-3 -right-3 bg-primary text-primary-foreground text-sm font-normal rounded-full h-6 w-6 flex items-center bg-black text-white justify-center drop-shadow-md">
 										{totalItems}
 									</span>
 								)}

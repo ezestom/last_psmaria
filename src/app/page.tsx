@@ -224,7 +224,7 @@ export default function ECommerceApp() {
 						className="fixed inset-0 bg-black bg-opacity-50 z-40"
 						onClick={() => setIsCartOpen(false)}
 					/>
-					<div className="fixed inset-y-0 right-0 w-full sm:w-96 bg-background shadow-lg p-6 overflow-y-auto z-50">
+					<div className="fixed inset-y-0 right-0 w-full sm:w-[25vw] bg-background shadow-lg p-6 overflow-y-auto z-50">
 						<div className="flex justify-between items-center mb-6">
 							<h2 className="text-2xl font-bold">Tu carrito</h2>
 							<Button
