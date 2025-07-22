@@ -12,11 +12,11 @@ import { motion } from "framer-motion";
 
 export function AnimatedModalDemo() {
    const images = [
-      "/images/img-1.jpg",
-      "/images/img-2.jpg",
-      "/images/img-3.jpg",
-      "/images/img-4.jpg",
-      "/images/img-5.jpg",
+      "/products/anillado.webp",
+      "/products/boya_tecno.webp",
+      "/products/gatillo_norte.webp",
+      "/products/hexagonal.webp",
+      "/products/bidon_5.webp",
    ];
    const rotations = images.map(() => Math.random() * 20 - 10);
 

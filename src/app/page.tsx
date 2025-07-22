@@ -20,6 +20,7 @@ import { toast, Toaster } from "sonner";
 import "../app/components/Form/Form.css";
 import whatsapp from "/public/icons/whatsappColor.svg";
 import formImage from "/public/hero.png";
+import Steps from "@/app/components/steps";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -28,6 +29,7 @@ import { products } from "@/data/products";
 import { Product, CartItem } from "./types"
 import { Card } from "./components/ui/card";
 import { AnimatedModalDemo } from "./components/animated-modal-demo";
+
 
 
 
@@ -197,6 +199,8 @@ export default function ECommerceApp() {
 				/>
 			</Link>
 			<div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+
+			<Steps />
 
 			<ProductSection products={products} addToCart={addToCart} />
 

@@ -30,7 +30,7 @@ const DealsSection: React.FC<DealsSectionProps> = ({ deals, addToCart }) => {
           {filteredDeals.length === 0 ? (
             <p className="text-center text-gray-500">No hay ofertas disponibles en este momento.</p>
           ) : (
-            <div className="grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            <div className="grid gap-2 grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
 
               {/* Mapeo de productos filtrados */}
               {displayedDeals.map((deal) => (

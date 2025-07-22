@@ -23,7 +23,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ products, addToCart }) => {
         <div className="container px-2">
           <Subtitle subtitle="Productos" paragraph="Lista completa de nuestros productos" />
 
-          <div className="grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          <div className="grid gap-2 grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
             {displayedProducts.map((product) => (
               <div className='' key={product.id}>
                 <Card className='h-full hover:bg-gray-200 group transition-colors overflow-hidden'>
