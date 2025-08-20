@@ -29,9 +29,11 @@ const ProductPage: React.FC<ProductPageProps> = ({ products, addToCart }) => {
                 <Card className='h-full hover:bg-gray-200 group transition-colors overflow-hidden'>
                   <CardContent className="h-full flex-1 flex flex-col justify-between !p-0 ">
                     <Image
-                      src={product.image || '/placeholder.png'}
+                      src={product.image || "/placeholder.jpg"}
                       alt={product.name || 'Producto'}
                       className="w-full h-80 lg:h-[25rem] group-hover:scale-110 group-hover:-translate-y-1 transition duration-300 object-cover  border border-gray-200"
+                      width={300}
+                      height={300}
                     />
                     <div className='px-2 py-4'>
                       <h2 className="text-base md:text-xl font-bold mb-1 md:mb-2">{product.name}</h2>
@@ -53,7 +55,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ products, addToCart }) => {
                       </p>
                       <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                         <span className="font-semibold">Peso: </span>
-                        {product.weight}
+                        {product.weight || "std"} grs
                       </p>
                       <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
                         <span className="font-semibold">Pack: </span>

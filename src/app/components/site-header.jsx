@@ -89,7 +89,7 @@ const Header = ({ cart, isCartOpen, setIsCartOpen }) => {
 								onClick={() => setIsCartOpen(!isCartOpen)}>
 								<ShoppingCartIcon className="h-4 w-4 " />
 								{totalItems > 0 && (
-									<span className="absolute -top-3 -right-3 bg-primary text-primary-foreground text-sm font-normal rounded-full h-6 w-6 flex items-center bg-black text-white justify-center drop-shadow-md">
+									<span className="absolute -top-4 -right-4 bg-primary text-primary-foreground text-xs rounded-md p-1 aspect-video flex items-center bg-black text-white justify-center drop-shadow-md w-auto">
 										{totalItems}
 									</span>
 								)}

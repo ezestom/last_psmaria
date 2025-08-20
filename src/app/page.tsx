@@ -285,9 +285,18 @@ export default function ECommerceApp() {
 												<MinusIcon className="h-4 w-4" />
 											</Button>
 
-											<span className="mx-2">
-												{item.quantity}
-											</span>
+											<input
+												type="number"
+												className="w-16 text-center mx-2 border rounded"
+												value={item.quantity}
+												onChange={(e) => {
+													const quantity = parseInt(e.target.value, 10);
+													if (!isNaN(quantity) && quantity >= 0) {
+														updateQuantity(item.id!, quantity);
+													}
+												}}
+												min="0"
+											/>
 											<Button
 
 
