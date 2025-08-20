@@ -9,7 +9,7 @@ import img8 from "/public/products/gatillo_norte.webp";
 import img9 from "/public/products/lavandina_1.webp";
 import img10 from "/public/products/lavandina_2.webp";
 import img11 from "/public/products/talquera_250.webp";
-import img12 from "/public/products/talquera_250.webp";
+// import img12 from "/public/products/talquera_250.webp";
 import img13 from "/public/products/repelente.webp";
 import img14 from "/public/products/cuadrado_100.webp";
 import img15 from "/public/products/gel_2.webp";
@@ -578,7 +578,7 @@ export const products: Product[] = [
 	{
 		id: 46,
 		name: "Bidon Mat. Recuperado",
-		image: "", // ver foto
+		image: "", 
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "5 lts",
