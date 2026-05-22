@@ -1,12 +1,19 @@
 #input-container {
 	padding: 2rem;
 }
-legend,
+legend {
+	border-radius: 0.5rem;
+	border: none;
+	color: inherit;
+	width: 100%;
+}
+
 input,
 textarea {
 	border-radius: 0.5rem;
-	border: none;
-	color: black;
+	border: 1px solid var(--hairline);
+	background-color: var(--surface-2);
+	color: var(--ink);
 	width: 100%;
 }
 
@@ -22,7 +29,7 @@ textarea {
 	border-radius: 50%;
 	width: 100px;
 	height: 100px;
-	color: #cccc;
+	color: var(--primary-lavender);
 }
 .loader:before,
 .loader:after {
@@ -38,7 +45,7 @@ textarea {
 	animation: 1s spin linear infinite;
 }
 .loader:after {
-	color: #111827;
+	color: var(--ink);
 	transform: rotateY(70deg);
 	animation-delay: 0.4s;
 }

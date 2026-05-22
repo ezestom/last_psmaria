@@ -10,7 +10,7 @@ export function FlipWordsDemo() {
             <span className="text-5xl xl:text-9xl text-black ">
                Plásticos </span>Santa María
          </h1>
-         <div className="md:text-5xl text-3xl -tracking-wider font-black">
+         <div className="md:text-5xl text-3xl -tracking-wider font-black text-black">
             Productos <FlipWords words={words} /> <br />
             <span className="">para tu negocio.</span>
          </div>

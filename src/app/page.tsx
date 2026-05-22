@@ -16,29 +16,28 @@ import ProductPage from "@/app/components/product-section";
 import Header from "@/app/components/site-header";
 import { FlipWordsDemo } from "@/app/components/FlipWordsDemo";
 import { TimeLineScroll } from "@/app/components/ui/time-line-scroll";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 import "../app/components/Form/Form.css";
 import whatsapp from "/public/icons/whatsappColor.svg";
-import formImage from "/public/hero.png";
+// import formImage from "/public/hero.png";
 import Steps from "@/app/components/steps";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { products } from "@/data/products";
 import { Product, CartItem } from "./types"
-import { Card } from "./components/ui/card";
+// import { Card } from "./components/ui/card";
 import { AnimatedModalDemo } from "./components/animated-modal-demo";
-
-
-
-
+import { CheckoutModal } from "./components/Form/CheckoutModal";
 
 export default function ECommerceApp() {
 	const [currentPage, setCurrentPage] = useState<'landing' | 'products'>('landing');
 	const [cart, setCart] = useState<CartItem[]>([]);
 	const [isCartOpen, setIsCartOpen] = useState(false);
-	const [isLoading, setIsLoading] = useState(false);
+	const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+	const router = useRouter();
 
 
 	useEffect(() => {
@@ -93,70 +92,20 @@ export default function ECommerceApp() {
 	// );
 
 	// form
-
+	
 	useEffect(() => {
 		if (isMessageSuccess()) {
 			toast(
 				"Información enviada con éxito! Gracias por tu confianza.");
-			window.location.href = "/sent-message";
+			router.push("/sent-message");
 		}
-	}, []); // Agrega las dependencias aquí
+	}, [router]);
 
 	const isMessageSuccess = () => {
 		return (
 			new URLSearchParams(window.location.search).get("success") ===
 			"true"
 		);
-	};
-
-	interface FormElements extends HTMLFormControlsCollection {
-		products: HTMLInputElement;
-		total: HTMLInputElement;
-		name: HTMLInputElement;
-		company: HTMLInputElement;
-		email: HTMLInputElement;
-		message: HTMLTextAreaElement;
-	}
-
-	interface FormWithElements extends HTMLFormElement {
-		elements: FormElements;
-	}
-
-	const handleSubmit = async (event: React.FormEvent<FormWithElements>) => {
-		event.preventDefault();
-		const form = event.currentTarget;
-		const formData = new FormData(form);
-
-		setIsLoading(true);
-
-		try {
-			const response = await fetch(form.action, {
-				method: form.method,
-				body: formData,
-			});
-
-			if (!response.ok) {
-				const errorText = await response.text();
-				throw new Error(
-					`Server responded with ${response.status}: ${errorText}`
-				);
-			}
-
-			toast(
-				"Tu mensaje ha sido enviado con éxito. Nos pondremos en contacto contigo a la brevedad. Gracias por tu confianza.");
-
-			setTimeout(() => {
-				const redirectTo = "/sent-message";
-
-				window.location.href = redirectTo;
-				setIsLoading(false);
-			}, 3000);
-		} catch (error) {
-			toast.error(
-				`There was a problem submitting the form, please try again. (Error: ${error})`
-			);
-			setIsLoading(false); // Asegúrate de desactivar el loading en caso de error
-		}
 	};
 
 	// form
@@ -172,14 +121,12 @@ export default function ECommerceApp() {
 					<div className="flex flex-col justify-center space-y-8 text-center lg:text-left ">
 						<FlipWordsDemo />
 						<div className="flex gap-4 justify-center lg:justify-start">
-							<Button
-								className="inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1"
-								onClick={() =>
-									(window.location.href = "/about")
-								}>
-								Empresa familiar
-								<ArrowRight className="ml-2 h-4 w-4" />
-							</Button>
+							<Link href="/about">
+								<Button className="inline-flex items-center justify-center text-ink bg-primary-lavender hover:bg-primary-hover focus:bg-primary-focus transition-colors shadow-none rounded-md py-2 px-4 border border-hairline font-semibold">
+									Empresa familiar
+									<ArrowRight className="ml-2 h-4 w-4" />
+								</Button>
+							</Link>
 							<AnimatedModalDemo />
 						</div>
 					</div>
@@ -198,7 +145,7 @@ export default function ECommerceApp() {
 					className="drop-shadow-lg"
 				/>
 			</Link>
-			<div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+			<div className="fixed inset-0 -z-10 h-full w-full dark-grid-bg"></div>
 
 			<Steps />
 
@@ -225,24 +172,23 @@ export default function ECommerceApp() {
 			{isCartOpen && (
 				<>
 					<div
-						className="fixed inset-0 bg-black bg-opacity-50 z-40"
+						className="fixed inset-0 bg-black/60 z-40 backdrop-blur-xs"
 						onClick={() => setIsCartOpen(false)}
 					/>
-					<div className="fixed inset-y-0 right-0 w-full sm:w-[25vw] bg-background shadow-lg p-6 overflow-y-auto z-50">
+					<div className="fixed inset-y-0 right-0 w-full sm:w-[25vw] bg-surface-1 border-l border-hairline shadow-none p-6 overflow-y-auto z-50">
 						<div className="flex justify-between items-center mb-6">
-							<h2 className="text-2xl font-bold">Tu carrito</h2>
+							<h2 className="text-2xl font-bold text-ink">Tu carrito</h2>
 							<Button
-
-
+								className="bg-transparent hover:bg-surface-2 text-ink-muted hover:text-ink shadow-none p-2 border-none transition-colors"
 								onClick={() => setIsCartOpen(false)}>
-								<XIcon className="h-6 w-6" />
+								<XIcon className="h-5 w-5" />
 							</Button>
 						</div>
 						{cart.length === 0 ? (
-							<p className="text-muted-foreground flex flex-col items-start gap-2">
+							<p className="text-ink-muted flex flex-col items-start gap-2 text-sm">
 								Tu carrito está vacío.{" "}
 								<button
-									className="inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1 rounded-md py-2 w-full"
+									className="inline-flex items-center justify-center text-ink bg-primary-lavender hover:bg-primary-hover focus:bg-primary-focus transition-colors shadow-none rounded-md py-2 w-full border border-hairline font-semibold text-sm"
 									onClick={() => setCurrentPage("products")}>
 									Agregar productos
 								</button>
@@ -252,42 +198,34 @@ export default function ECommerceApp() {
 								{cart.map((item) => (
 									<div
 										key={item.id}
-										className="flex items-center justify-between mb-4">
+										className="flex items-center justify-between mb-4 border-b border-hairline pb-4 last:border-b-0">
 										<div className="flex items-center">
 											<Image
 												src={item.image || "/default-image.png"}
 												alt={item.name || "Producto sin nombre"}
-												className="w-16 h-16 object-cover rounded-md mr-4"
+												className="w-16 h-16 object-cover rounded-md mr-4 border border-hairline"
 											/>
 											<div>
-												<h3 className="font-semibold">
+												<h3 className="font-semibold text-ink text-sm">
 													{item.name}
 												</h3>
-
-												{/* precio del producto en el carrito */}
-
-												{/* <p className="text-sm text-muted-foreground">
-													${(item.price ?? 0).toFixed(2)}
-												</p> */}
-
 											</div>
 										</div>
-										<div className="flex items-center">
+										<div className="flex items-center gap-1">
 											<Button
-
-
+												className="h-8 w-8 p-0 bg-surface-2 hover:bg-surface-3 text-ink-muted hover:text-ink border border-hairline shadow-none rounded transition-colors"
 												onClick={() =>
 													updateQuantity(
 														item.id!,
 														item.quantity - 1
 													)
 												}>
-												<MinusIcon className="h-4 w-4" />
+												<MinusIcon className="h-3.5 w-3.5" />
 											</Button>
 
 											<input
 												type="number"
-												className="w-16 text-center mx-2 border rounded"
+												className="w-12 text-center bg-surface-2 border border-hairline rounded text-ink focus:outline-none focus:border-primary-lavender text-sm h-8"
 												value={item.quantity}
 												onChange={(e) => {
 													const quantity = parseInt(e.target.value, 10);
@@ -298,201 +236,33 @@ export default function ECommerceApp() {
 												min="0"
 											/>
 											<Button
-
-
+												className="h-8 w-8 p-0 bg-surface-2 hover:bg-surface-3 text-ink-muted hover:text-ink border border-hairline shadow-none rounded transition-colors"
 												onClick={() =>
 													updateQuantity(
 														item.id!,
 														item.quantity + 1
 													)
 												}>
-												<PlusIcon className="h-4 w-4" />
+												<PlusIcon className="h-3.5 w-3.5" />
 											</Button>
 											<Button
-												className="ml-2"
+												className="ml-2 h-8 w-8 p-0 bg-transparent hover:bg-surface-2 text-ink-subtle hover:text-ink border-none shadow-none transition-colors"
 												onClick={() =>
 													removeFromCart(item.id!)
 												}>
-												<TrashIcon className="h-4 w-4" />
+												<TrashIcon className="h-4 w-4 text-red-500 hover:text-red-400" />
 											</Button>
 										</div>
 									</div>
 								))}
-								<div className="mt-6 border-t pt-4 relative">
-									<div className="flex justify-between items-center mb-4">
-										{/* Total suma de los productos en el carrito */}
-
-										{/* <span className="font-semibold">
-											Total:
-										</span>
-										<span className="font-bold">
-											${totalPrice.toFixed(2)}
-										</span> */}
-									</div>
+								<div className="mt-6 border-t border-hairline pt-4 relative">
 									<button
 										onClick={() => {
-											const dialog =
-												document.querySelector(
-													"dialog"
-												);
-											dialog?.showModal();
+											setIsCheckoutOpen(true);
 										}}
-										className="w-full inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1 rounded-md py-2">
+										className="w-full inline-flex items-center justify-center text-ink bg-primary-lavender hover:bg-primary-hover focus:bg-primary-focus transition-colors shadow-none rounded-md py-2.5 border border-hairline font-semibold text-sm">
 										Procesar mi cotización
 									</button>
-
-									<dialog className="absolute">
-										<Toaster />
-
-										<button
-											className="absolute top-2 right-2 z-50"
-											onClick={() => {
-												const dialog =
-													document.querySelector(
-														"dialog"
-													);
-												dialog?.close();
-												window.location.href = "/";
-											}}>
-											<XIcon className="h-8 w-8" />
-										</button>
-										{isLoading && (
-											<div className="absolute top-0 left-0 right-0 bottom-0 backdrop-blur bg-white/10 opacity-50 flex justify-center items-center z-50 rounded-md w-full h-full">
-												<span className="loader"></span>
-											</div>
-										)}
-										<main className="flex items-center justify-center border rounded-md overflow-hidden ">
-											<Card className="border-none w-screen md:w-1/2 p-4 md:p-8">
-
-												<h2 className="text-2xl font-bold mb-4">
-													Enviar mi cotización
-												</h2>
-												<form
-													onSubmit={handleSubmit}
-													method="POST"
-													action="https://formsubmit.co/maximoafornasari@gmail.com"
-													className="mt-8 gap-6 mx-2">
-													{/* input cc */}
-													<input
-														type="hidden"
-														name="_cc"
-														value="ezequielstom@gmail.com"
-													/>
-													<input
-														type="hidden"
-														name="_subject"
-														value="📃 Santa María | 📩 Nuevo Mensaje!"
-													/>
-													<input
-														type="hidden"
-														name="_autoresponse"
-														value="
-                            Tu mensaje ha sido recibido con éxito. Nos pondremos en contacto contigo a la brevedad. Gracias por tu confianza."></input>
-
-													<input
-														type="hidden"
-														name="_captcha"
-														value="false"
-													/>
-													{/*  aquí hay que armar el input cargando la info que viene desde el carrito */}
-													<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
-														Productos para cotizar
-														<input
-															type="text"
-															name="products"
-															className="p-2 my-1 w-full rounded-md border-gray-200 bg-black  text-sm text-white text-pretty shadow-sm active:bg-black focus:outline-none"
-															value={cart
-																.map(
-																	(item) =>
-																		`${item.name
-																		} x ${item.quantity
-																		} - $${(
-																			// (item.price ?? 0) * // precio del producto en el carrito
-																			item.quantity
-																		).toFixed(
-																			2
-																		)}`
-																)
-																.join(" ✓ ")}
-															readOnly
-														/>
-													</label>
-													{/* <label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
-													Total de los productos
-													seleccionados
-													<input
-														type="text"
-														name="total"
-														className="p-2 my-1 w-full rounded-md border-gray-200 bg-black  text-sm text-white text-pretty shadow-sm active:bg-black focus:outline-none"
-														value={`$${totalPrice.toFixed(
-															2
-														)}`}
-														readOnly
-													/>
-												</label> */}
-
-													<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
-														Nombre
-														<input
-															type="text"
-															name="name"
-															id="name"
-															placeholder="Juan Pérez"
-															required
-															className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-														/>
-													</label>
-													<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
-														Empresa
-														<input
-															type="text"
-															name="company"
-															id="company"
-															placeholder="Plásticos Santa María"
-															required
-															className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-														/>
-													</label>
-													<label className="flex justify-start items-start py-2 flex-col text-sm  font-medium text-gray-700">
-														Correo electrónico
-														<input
-															className="p-2 my-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-															type="email"
-															name="email"
-															id="email"
-															required
-															placeholder="juan_perez@ejemplo.com"
-														/>
-													</label>
-													<fieldset>
-														<legend className="flex flex-col items-start justify-start text-sm py-2 font-medium text-gray-700 ">
-															Mensaje adicional
-															<textarea
-																name="message"
-																id="message"
-																required
-																className="w-full border-gray-200 rounded-md bg-white text-sm text-gray-700 shadow-sm p-2 max-h-[100px]"
-																placeholder="Quiero cotizar estos productos. Gracias">
-
-															</textarea>
-														</legend>
-													</fieldset>
-													<div className="flex justify-center flex-col pt-4 gap-4">
-														<Button
-															type="submit"
-															className="inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1">
-															Enviar
-														</Button>
-													</div>
-												</form>
-											</Card>
-											<Image
-												src={formImage}
-												alt="form"
-												className="hidden object-cover h-full md:block w-1/2 grayscale aspect-square opacity-50"
-											/>
-										</main>
-									</dialog>
 								</div>
 							</>
 						)}
@@ -516,6 +286,12 @@ export default function ECommerceApp() {
 				<ProductPage products={products} addToCart={addToCart} />
 			)}
 			{renderCart()}
+			<CheckoutModal
+				isOpen={isCheckoutOpen}
+				onClose={() => setIsCheckoutOpen(false)}
+				cart={cart}
+				clearCart={() => setCart([])}
+			/>
 			<SiteFooter />
 		</div>
 	);

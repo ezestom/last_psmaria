@@ -28,55 +28,55 @@ const DealsSection: React.FC<DealsSectionProps> = ({ deals, addToCart }) => {
 
           {/* Mostrar un mensaje si no hay ofertas disponibles */}
           {filteredDeals.length === 0 ? (
-            <p className="text-center text-gray-500">No hay ofertas disponibles en este momento.</p>
+            <p className="text-center text-ink-muted">No hay ofertas disponibles en este momento.</p>
           ) : (
             <div className="grid gap-2 grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
 
               {/* Mapeo de productos filtrados */}
               {displayedDeals.map((deal) => (
                 <div key={deal.id}>
-                  <Card className='h-full hover:bg-gray-200 group transition-colors overflow-hidden'>
+                  <Card className='h-full hover:bg-surface-2 hover:border-hairline-strong group transition-colors overflow-hidden'>
                     <CardContent className="h-full flex-1 flex flex-col justify-between !p-0 ">
                       <Image
                         width={300}
                         height={300}
                         src={deal.image || '/placeholder.png'}
                         alt={deal.name || 'Producto'}
-                        className="w-full h-80 lg:h-[25rem] group-hover:scale-110 group-hover:-translate-y-1 transition duration-300 object-cover  border border-gray-200"
+                        className="w-full h-80 lg:h-[25rem] group-hover:scale-105 transition duration-300 object-cover border-b border-hairline"
                       />
                       <div className='px-2 py-4'>
 
-                        <h2 className="text-base md:text-xl font-bold mb-1 md:mb-2">{deal.name}</h2>
-                        <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
-                          <span className="font-semibold">Categoría: </span>
+                        <h2 className="text-base md:text-xl font-bold mb-1 md:mb-2 text-ink">{deal.name}</h2>
+                        <p className="text-ink-muted flex text-sm gap-1 mb-1 md:mb-2">
+                          <span className="font-semibold text-ink">Categoría: </span>
                           {deal.category}
                         </p>
-                        <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
-                          <span className="font-semibold">Material: </span>
+                        <p className="text-ink-muted flex text-sm gap-1 mb-1 md:mb-2">
+                          <span className="font-semibold text-ink">Material: </span>
                           {deal.material}
                         </p>
-                        <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
-                          <span className="font-semibold">Capacidad: </span>
+                        <p className="text-ink-muted flex text-sm gap-1 mb-1 md:mb-2">
+                          <span className="font-semibold text-ink">Capacidad: </span>
                           {deal.capacity}
                         </p>
-                        <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
-                          <span className="font-semibold">Color: </span>
+                        <p className="text-ink-muted flex text-sm gap-1 mb-1 md:mb-2">
+                          <span className="font-semibold text-ink">Color: </span>
                           {deal.color}
                         </p>
-                        <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
-                          <span className="font-semibold">Peso: </span>
+                        <p className="text-ink-muted flex text-sm gap-1 mb-1 md:mb-2">
+                          <span className="font-semibold text-ink">Peso: </span>
                           {deal.weight}
                         </p>
-                        <p className="text-muted-foreground flex text-sm gap-1 mb-1 md:mb-2">
-                          <span className="font-semibold">Pack: </span>
+                        <p className="text-ink-muted flex text-sm gap-1 mb-1 md:mb-2">
+                          <span className="font-semibold text-ink">Pack: </span>
                           {deal.quantity}
                         </p>
                         <Button
                           onClick={() => addToCart(deal)}
-                          className="text-xs md:text-sm w-full gap-1 inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1"
+                          className="text-xs md:text-sm w-full gap-1 inline-flex items-center justify-center text-ink bg-primary-lavender hover:bg-primary-hover focus:bg-primary-focus transition-colors shadow-none rounded-md py-2 border border-hairline"
                         >
                           Agregar al carrito
-                          <span className="text-xs"> - para cotizar </span>
+                          <span className="text-xs opacity-80"> - para cotizar </span>
                         </Button>
                       </div>
                     </CardContent>
@@ -85,11 +85,10 @@ const DealsSection: React.FC<DealsSectionProps> = ({ deals, addToCart }) => {
               ))}
 
               {/* Botón para alternar entre mostrar todas las ofertas o solo algunas */}
-              <Card>
+              <Card className="flex items-center justify-center p-0 overflow-hidden hover:bg-surface-2 hover:border-hairline-strong transition-colors">
                 <Button
                   onClick={() => setShowAllDeals(!showAllDeals)}
-                  className={`w-full h-full inline-flex items-center justify-center ${showAllDeals ? 'bg-black text-white' : 'bg-transparent text-black'
-                    } hover:bg-black hover:text-white shadow-md transition rounded-md py-2`}
+                  className="w-full h-full inline-flex items-center justify-center text-ink bg-transparent hover:bg-transparent shadow-none transition rounded-md py-8"
                 >
                   {showAllDeals ? 'Ver menos ofertas' : 'Ver todas las ofertas'}
                 </Button>

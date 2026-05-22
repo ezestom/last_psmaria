@@ -15,7 +15,7 @@ const features = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-12 h-12 mb-4 text-primary"
+        className="w-12 h-12 mb-4 text-primary-lavender"
       >
         <circle cx="12" cy="12" r="10" />
         <line x1="12" y1="8" x2="12" y2="12" />
@@ -38,7 +38,7 @@ const features = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-12 h-12 mb-4 text-primary"
+        className="w-12 h-12 mb-4 text-primary-lavender"
       >
         <polyline points="20 6 9 17 4 12" />
       </svg>
@@ -59,7 +59,7 @@ const features = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-12 h-12 mb-4 text-primary"
+        className="w-12 h-12 mb-4 text-primary-lavender"
       >
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
         <polyline points="7 10 12 15 17 10" />
@@ -81,11 +81,11 @@ const FeaturesSection = () => {
         <div className="grid gap-6 lg:grid-cols-3">
           {features.map((feature, index) => (
             <div key={index}>
-              <Card>
+              <Card className="hover:bg-surface-2 hover:border-hairline-strong transition-colors h-full">
                 <CardContent className="p-6">
                   {feature.icon}
-                  <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">
+                  <h3 className="text-lg font-bold mb-2 text-ink">{feature.title}</h3>
+                  <p className="text-ink-muted text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </CardContent>

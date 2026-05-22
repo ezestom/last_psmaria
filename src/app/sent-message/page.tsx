@@ -1,21 +1,22 @@
 'use client';
 
 import { CircleCheck } from "lucide-react";
+import Link from "next/link";
 
-export function SentMessage() {
-   const handleClick = () => {
-      window.location.href = "/";
-   };
+function SentMessage() {
    return (
-      <div className="flex flex-col items-center justify-center h-screen">
-         <button onClick={handleClick} className="fixed top-5 right-5 inline-flex items-center justify-center text-white hover:text-black bg-black hover:bg-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1 px-4 py-2 rounded-md">Volver a la tienda</button>
+      <div className="flex flex-col items-center justify-center h-screen bg-canvas overflow-hidden relative">
+         <div className="fixed inset-0 -z-10 h-full w-full dark-grid-bg"></div>
+         <Link href="/" className="fixed top-5 right-5 inline-flex items-center justify-center text-ink bg-primary-lavender hover:bg-primary-hover focus:bg-primary-focus transition-colors shadow-none rounded-md px-4 py-2 border border-hairline font-semibold text-sm">
+            Volver a la tienda
+         </Link>
          <div className="flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-bold text-primary flex items-center gap-1">Mensaje enviado
-               <CircleCheck className="size-8" />
+            <h1 className="text-4xl font-bold text-ink flex items-center gap-2">
+               Mensaje enviado
+               <CircleCheck className="size-8 text-success" />
             </h1>
-            <p className="text-lg text-center flex flex-col mt-4">Gracias por contactarnos, <span>
-               te responderemos a la brevedad.</span>
-
+            <p className="text-lg text-ink-muted text-center flex flex-col mt-4">
+               Gracias por contactarnos, <span>te responderemos a la brevedad.</span>
             </p>
          </div>
       </div>
