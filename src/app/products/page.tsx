@@ -8,7 +8,7 @@ import ProductSection from "@/app/components/product-section";
 import SiteFooter from "@/app/components/site-footer";
 import { products } from "@/data/products";
 import { Product, CartItem } from "@/app/types";
-import { Toaster } from "sonner";
+import { toast, Toaster } from "sonner";
 import Image from "next/image";
 import Link from "next/link";
 import whatsapp from "/public/icons/whatsappColor.svg";
@@ -43,6 +43,13 @@ export default function ProductsPageRoute() {
 		} else {
 			setCart([...cart, { ...product, quantity: 1 }]);
 		}
+		toast.success(`"${product.name}" agregado al carrito`, {
+			description: "Se ha añadido el producto para cotizar.",
+			action: {
+				label: "Ver Carrito",
+				onClick: () => setIsCartOpen(true),
+			},
+		});
 	};
 
 	const removeFromCart = (productId: number) => {
@@ -175,7 +182,7 @@ export default function ProductsPageRoute() {
 
 	return (
 		<div className="flex flex-col min-h-screen bg-canvas">
-			<Toaster />
+			<Toaster theme="dark" position="bottom-right" />
 			<Header
 				cart={cart}
 				isCartOpen={isCartOpen}

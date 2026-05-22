@@ -9,6 +9,7 @@ import Image from "next/image";
 import { Card } from "../ui/card";
 import formImage from "/public/icons/message.svg";
 import { useRouter } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface FormProps {
 	h1: string;
@@ -137,46 +138,62 @@ export const Form: React.FC<FormProps> = ({
 				</Button>
 			</span>
 
-			{dialog && (
-				<dialog
-					open
-					className="backdrop-blur flex items-center justify-center fixed inset-0 w-full h-full z-[100] bg-black/60 border-none">
-					<div className="fixed inset-0 -z-10 h-full w-full bg-canvas bg-[linear-gradient(to_right,rgba(35,37,42,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(35,37,42,0.15)_1px,transparent_1px)] bg-[size:14px_24px]"></div>
-					<section
-						className="backdrop-blur-md flex items-center justify-center overflow-hidden max-h-[95vh] rounded-md shadow-none border border-hairline"
-						id="form-section">
-						<main className="flex items-center justify-center border border-hairline rounded-md relative bg-surface-1">
+			<AnimatePresence>
+				{dialog && (
+					<div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+						{/* Backdrop Overlay */}
+						<motion.div
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							onClick={closeDialog}
+							className="fixed inset-0 bg-black/70 backdrop-blur-sm"
+						/>
+
+						{/* Modal Box */}
+						<motion.div
+							initial={{ opacity: 0, scale: 0.95, y: 20 }}
+							animate={{ opacity: 1, scale: 1, y: 0 }}
+							exit={{ opacity: 0, scale: 0.95, y: 20 }}
+							transition={{ duration: 0.25, ease: "easeOut" }}
+							className="relative w-full max-w-4xl max-h-[90vh] flex flex-col md:flex-row items-stretch border border-hairline rounded-md overflow-hidden bg-surface-1 shadow-2xl z-10">
+							
+							{/* Form Section */}
 							<Card
-								className="max-w-[600px] border-none bg-surface-1"
+								className="w-full md:w-1/2 border-none bg-surface-1 p-6 sm:p-8 overflow-y-auto max-h-[90vh] rounded-none relative"
 								id="input-container">
+								{/* Close Button */}
 								<button
 									type="button"
-									className="absolute top-2 right-2 text-ink z-50 p-2 rounded-full hover:bg-surface-2 transition"
+									className="absolute top-4 right-4 text-ink-muted z-50 p-2 rounded-full hover:bg-surface-2 transition"
 									onClick={closeDialog}>
 									<Image
-										className="size-6 hover:text-ink filter invert opacity-80"
+										className="size-5 hover:text-ink filter invert opacity-80"
 										src={xIcon}
 										alt="x-icon"
 										id="close-dialog"
 									/>
 								</button>
+
 								{isLoading && (
-									<div className="absolute top-0 left-0 right-0 bottom-0 backdrop-blur bg-black/40 flex justify-center items-center z-50 rounded-md w-full h-full">
-										<span className="loader"></span>
+									<div className="absolute inset-0 backdrop-blur bg-black/40 flex justify-center items-center z-50">
+										<div className="animate-spin rounded-full h-12 w-12 border-4 border-hairline border-t-primary-lavender" />
 									</div>
 								)}
-								<h2 className="font-bold mx-2 text-ink text-xl sm:text-2xl text-left">
+
+								<h2 className="font-bold text-ink text-xl sm:text-2xl text-left tracking-tight">
 									{h1}
 								</h2>
 
-								<p className="mt-4 text-sm leading-relaxed mx-2 text-ink-muted text-left">
+								<p className="mt-2 text-sm leading-relaxed text-ink-muted text-left">
 									{subtitle}
 								</p>
+
 								<form
 									onSubmit={handleSubmit}
 									method="POST"
 									action="https://formsubmit.co/maximoafornasari@gmail.com"
-									className="mt-8 gap-6 mx-2 text-left">
+									className="mt-6 space-y-4 text-left">
 									<input
 										type="hidden"
 										name="_cc"
@@ -200,79 +217,81 @@ export const Form: React.FC<FormProps> = ({
 										value="false"
 									/>
 
-									<div className="col-span-6 sm:col-span-3">
-										<label className="flex justify-start items-start py-2 flex-col text-sm font-medium text-ink-muted">
-											{name}
-											<input
-												type="text"
-												name="name"
-												id="name"
-												placeholder="Juan Perez"
-												required
-												className="p-2 my-1 w-full rounded-md border border-hairline bg-surface-2 text-sm text-ink focus:border-primary-lavender focus:ring-1 focus:ring-primary-lavender focus:outline-none"
-											/>
-										</label>
+									<div className="flex flex-col text-sm font-medium text-ink-muted">
+										{name}
+										<input
+											type="text"
+											name="name"
+											id="name"
+											placeholder="Juan Perez"
+											required
+											className="p-2 mt-1 w-full rounded-md border border-hairline bg-surface-2 text-sm text-ink placeholder-ink-subtle focus:border-primary-lavender focus:ring-1 focus:ring-primary-lavender focus:outline-none"
+										/>
 									</div>
-									<div className="col-span-6 sm:col-span-3">
-										<label className="flex justify-start items-start py-2 flex-col text-sm font-medium text-ink-muted">
-											{company}
-											<input
-												type="text"
-												name="company"
-												id="company"
-												placeholder="Plásticos Santa María"
-												required
-												className="p-2 my-1 w-full rounded-md border border-hairline bg-surface-2 text-sm text-ink focus:border-primary-lavender focus:ring-1 focus:ring-primary-lavender focus:outline-none"
-											/>
-										</label>
+									
+									<div className="flex flex-col text-sm font-medium text-ink-muted">
+										{company}
+										<input
+											type="text"
+											name="company"
+											id="company"
+											placeholder="Plásticos Santa María"
+											required
+											className="p-2 mt-1 w-full rounded-md border border-hairline bg-surface-2 text-sm text-ink placeholder-ink-subtle focus:border-primary-lavender focus:ring-1 focus:ring-primary-lavender focus:outline-none"
+										/>
 									</div>
-									<div className="col-span-6 sm:col-span-3">
-										<label className="flex justify-start items-start py-2 flex-col text-sm font-medium text-ink-muted">
-											{email}
-											<input
-												className="p-2 my-1 w-full rounded-md border border-hairline bg-surface-2 text-sm text-ink focus:border-primary-lavender focus:ring-1 focus:ring-primary-lavender focus:outline-none"
-												type="email"
-												name="email"
-												id="email"
-												required
-												placeholder={email_placeholder}
-											/>
-										</label>
+
+									<div className="flex flex-col text-sm font-medium text-ink-muted">
+										{email}
+										<input
+											className="p-2 mt-1 w-full rounded-md border border-hairline bg-surface-2 text-sm text-ink placeholder-ink-subtle focus:border-primary-lavender focus:ring-1 focus:ring-primary-lavender focus:outline-none"
+											type="email"
+											name="email"
+											id="email"
+											required
+											placeholder={email_placeholder}
+										/>
 									</div>
-									<fieldset>
+
+									<fieldset className="w-full">
 										<legend className="flex flex-col items-start justify-start text-sm py-2 font-medium text-ink-muted w-full">
 											{message}
 											<textarea
 												name="message"
 												id="message"
 												required
-												className="w-full border border-hairline rounded-md bg-surface-2 text-sm text-ink focus:border-primary-lavender focus:ring-1 focus:ring-primary-lavender focus:outline-none p-2 max-h-[100px]"
+												className="w-full border border-hairline rounded-md bg-surface-2 text-sm text-ink placeholder-ink-subtle focus:border-primary-lavender focus:ring-1 focus:ring-primary-lavender focus:outline-none p-2 mt-1 min-h-[80px] max-h-[100px]"
 												placeholder={message_placeholder}></textarea>
 										</legend>
 									</fieldset>
 
-									<div className="flex justify-center flex-col pt-4 gap-4">
+									<div className="flex justify-center flex-col pt-2 gap-4">
 										<Button
 											type="submit"
 											className="inline-flex items-center justify-center text-ink bg-primary-lavender hover:bg-primary-hover focus:bg-primary-focus transition-colors shadow-none rounded-md py-2 border border-hairline font-semibold">
 											{send}
 										</Button>
-										<p className="mt-4 text-sm text-ink-subtle font-semibold sm:mt-0 text-center">
+										<p className="mt-2 text-xs text-ink-subtle font-semibold text-center">
 											✉️ {message_2}
 										</p>
 									</div>
 								</form>
 							</Card>
-							<Image
-								src={formImage}
-								alt="form"
-								className="hidden md:block w-1/2 grayscale opacity-40 p-4"
-							/>
-						</main>
-					</section>
-				</dialog>
-			)}
+
+							{/* Right side decoration image (Desktop only) */}
+							<div className="hidden md:flex md:w-1/2 items-center justify-center bg-surface-2 border-l border-hairline p-8">
+								<Image
+									src={formImage}
+									alt="form decoration"
+									className="w-2/3 h-auto grayscale opacity-30 transition-opacity hover:opacity-40 duration-300"
+								/>
+							</div>
+						</motion.div>
+					</div>
+				)}
+			</AnimatePresence>
 		</div>
 	);
 };
 export default Form;
+

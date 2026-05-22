@@ -58,24 +58,22 @@ const Header: React.FC<HeaderProps> = ({ cart, isCartOpen, setIsCartOpen }) => {
 					</nav>
 				</div>
 
-				<div className="block md:hidden z-[100] fixed top-3 right-3">
-					<MyDrawer />
-				</div>
+				<div className="flex items-center gap-3">
+					<Button
+						variant="outline"
+						size="icon"
+						className="relative bg-surface-1 hover:bg-surface-2 border border-hairline text-ink hover:text-ink rounded-md transition-colors"
+						onClick={() => setIsCartOpen(!isCartOpen)}>
+						<ShoppingCartIcon className="h-4 w-4" />
+						{totalItems > 0 && (
+							<span className="absolute -top-2 -right-2 bg-primary-lavender text-white text-[10px] font-bold rounded-full h-5 min-w-5 flex items-center justify-center px-1 shadow-md border border-canvas animate-pulse">
+								{totalItems}
+							</span>
+						)}
+					</Button>
 
-				<div className="flex items-center justify-end">
-					<div className="flex items-center">
-						<Button
-							variant="outline"
-							size="icon"
-							className="relative bg-surface-1 hover:bg-surface-2 border border-hairline text-ink hover:text-ink rounded-md transition-colors"
-							onClick={() => setIsCartOpen(!isCartOpen)}>
-							<ShoppingCartIcon className="h-4 w-4" />
-							{totalItems > 0 && (
-								<span className="absolute -top-2 -right-2 bg-primary-lavender text-white text-[10px] font-bold rounded-full h-5 min-w-5 flex items-center justify-center px-1 shadow-md border border-canvas animate-pulse">
-									{totalItems}
-								</span>
-							)}
-						</Button>
+					<div className="block md:hidden">
+						<MyDrawer />
 					</div>
 				</div>
 			</div>

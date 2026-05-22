@@ -16,7 +16,7 @@ import ProductPage from "@/app/components/product-section";
 import Header from "@/app/components/site-header";
 import { FlipWordsDemo } from "@/app/components/FlipWordsDemo";
 import { TimeLineScroll } from "@/app/components/ui/time-line-scroll";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
 import "../app/components/Form/Form.css";
 import whatsapp from "/public/icons/whatsappColor.svg";
 // import formImage from "/public/hero.png";
@@ -64,6 +64,13 @@ export default function ECommerceApp() {
 		} else {
 			setCart([...cart, { ...product, quantity: 1 }]);
 		}
+		toast.success(`"${product.name}" agregado al carrito`, {
+			description: "Se ha añadido el producto para cotizar.",
+			action: {
+				label: "Ver Carrito",
+				onClick: () => setIsCartOpen(true),
+			},
+		});
 	};
 
 	const removeFromCart = (productId: number) => {
@@ -274,6 +281,7 @@ export default function ECommerceApp() {
 
 	return (
 		<div className="flex flex-col min-h-screen">
+			<Toaster theme="dark" position="bottom-right" />
 			<Header
 				// setCurrentPage={setCurrentPage}
 				cart={cart}
