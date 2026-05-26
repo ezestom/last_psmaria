@@ -41,3 +41,17 @@ body {
 	background-size: 14px 24px;
 }
 
+/* Custom bounce subtle animation for WhatsApp button */
+@keyframes bounce-subtle {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-5px);
+	}
+}
+
+.animate-bounce-subtle {
+	animation: bounce-subtle 2.5s infinite ease-in-out;
+}
+

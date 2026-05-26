@@ -10,8 +10,7 @@ import { products } from "@/data/products";
 import { Product, CartItem } from "@/app/types";
 import { toast, Toaster } from "sonner";
 import Image from "next/image";
-import Link from "next/link";
-import whatsapp from "/public/icons/whatsappColor.svg";
+import { WhatsAppButton } from "@/app/components/ui/whatsapp-button";
 import { CheckoutModal } from "@/app/components/Form/CheckoutModal";
 
 export default function ProductsPageRoute() {
@@ -181,7 +180,7 @@ export default function ProductsPageRoute() {
 	);
 
 	return (
-		<div className="flex flex-col min-h-screen bg-canvas">
+		<div className="flex flex-col bg-canvas">
 			<Toaster theme="dark" position="bottom-right" />
 			<Header
 				cart={cart}
@@ -193,19 +192,7 @@ export default function ProductsPageRoute() {
 				<ProductSection products={products} addToCart={addToCart} />
 			</div>
 
-			<Link
-				id="toggle_nav"
-				className="fixed max-w-10 right-5 bottom-5 z-50 hover:scale-105 transition"
-				target="_blank"
-				href="https://wa.me/+5491151083838">
-				<Image
-					src={whatsapp}
-					alt="whatsapp logo"
-					width={200}
-					height={200}
-					className="drop-shadow-lg"
-				/>
-			</Link>
+			<WhatsAppButton className="bottom-5" />
 			<div className="fixed inset-0 -z-10 h-full w-full dark-grid-bg"></div>
 
 			{renderCart()}

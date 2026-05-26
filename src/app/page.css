@@ -1,7 +1,7 @@
 #hero {
-	background-image: url("/plastic_factory.jpg");
-	max-height: 100vh;
+	background-image: linear-gradient(to right, rgba(1, 1, 2, .75) 0%, rgba(1, 1, 2, .5) 50%, rgba(1, 1, 2, 0) 100%), url("/plastic_factory.jpg");
 	overflow: hidden;
+	height: 90dvh;
 	background-size: cover;
 	background-position: right;
 	background-repeat: no-repeat;
@@ -18,7 +18,7 @@
 		rgba(0, 0, 0, 0) 100%
 	); */
 
-	background-color: #fff; /* fallback */
+	background-color: var(--canvas); /* fallback */
 }
 
 @media (max-width: 768px) {

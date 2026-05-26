@@ -18,7 +18,7 @@ import { FlipWordsDemo } from "@/app/components/FlipWordsDemo";
 import { TimeLineScroll } from "@/app/components/ui/time-line-scroll";
 import { toast, Toaster } from "sonner";
 import "../app/components/Form/Form.css";
-import whatsapp from "/public/icons/whatsappColor.svg";
+import { WhatsAppButton } from "@/app/components/ui/whatsapp-button";
 // import formImage from "/public/hero.png";
 import Steps from "@/app/components/steps";
 
@@ -139,19 +139,7 @@ export default function ECommerceApp() {
 					</div>
 				</div>
 			</section>
-			<Link
-				id="toggle_nav"
-				className="fixed max-w-10 right-5 bottom-5 z-50 hover:scale-105 transition"
-				target="_blank"
-				href="https://wa.me/+5491151083838">
-				<Image
-					src={whatsapp}
-					alt="whatsapp logo"
-					width={200}
-					height={200}
-					className="drop-shadow-lg"
-				/>
-			</Link>
+			<WhatsAppButton className="bottom-12" />
 			<div className="fixed inset-0 -z-10 h-full w-full dark-grid-bg"></div>
 
 			<Steps />

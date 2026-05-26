@@ -6,13 +6,13 @@ export function FlipWordsDemo() {
 
    return (
       <div className="flex-col font-normal flex xl:items-start gap-8">
-         <h1 className="text-7xl font-black tracking-tighter sm:text-5xl xl:text-8xl/none flex flex-col text-[rgb(4,109,181)]">
-            <span className="text-5xl xl:text-9xl text-black ">
+         <h1 className="text-7xl font-black tracking-tighter sm:text-5xl xl:text-8xl/none flex flex-col text-sky-400">
+            <span className="text-5xl xl:text-9xl text-white">
                Plásticos </span>Santa María
          </h1>
-         <div className="md:text-5xl text-3xl -tracking-wider font-black text-black">
-            Productos <FlipWords words={words} /> <br />
-            <span className="">para tu negocio.</span>
+         <div className="md:text-5xl text-3xl -tracking-wider font-black text-zinc-100">
+            Productos <FlipWords words={words} className="text-primary-lavender" /> <br />
+            <span>para tu negocio.</span>
          </div>
       </div>
    );

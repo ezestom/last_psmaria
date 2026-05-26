@@ -7,7 +7,7 @@ const SiteFooter = () => {
         &copy; 2024 Plásticos Santa María. Todos los derechos reservados.
       </p>
       <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-        <a target='_blank' className="text-xs hover:underline underline-offset-4 text-ink-muted" href="https://ezestom.github.io/portfolio/">
+        <a target='_blank' className="text-xs hover:underline underline-offset-4 text-ink-muted" href="https://ezestom.is-a.dev/">
           Developed by <span className="font-bold text-primary-lavender">Eze</span>
         </a>
       </nav>
