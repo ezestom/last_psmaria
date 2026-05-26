@@ -15,7 +15,6 @@ import SiteFooter from "@/app/components/site-footer";
 import ProductPage from "@/app/components/product-section";
 import Header from "@/app/components/site-header";
 import { FlipWordsDemo } from "@/app/components/FlipWordsDemo";
-import { TimeLineScroll } from "@/app/components/ui/time-line-scroll";
 import { toast, Toaster } from "sonner";
 import "../app/components/Form/Form.css";
 import { WhatsAppButton } from "@/app/components/ui/whatsapp-button";
@@ -123,7 +122,6 @@ export default function ECommerceApp() {
 			<section
 				className="w-full min-h-screen  overflow-hidden relative flex items-center justify-center"
 				id="hero">
-				<TimeLineScroll />
 				<div className="container px-4 md:px-6 mb-16 mx-auto ">
 					<div className="flex flex-col justify-center space-y-8 text-center lg:text-left ">
 						<FlipWordsDemo />

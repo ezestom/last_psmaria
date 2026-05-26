@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({ cart, isCartOpen, setIsCartOpen }) => {
 
 						<div className="hidden flex-col-reverse text-base items-start sm:flex font-black leading-3 text-ink">
 							Santa María{" "}
-							<span className="text-xs text-primary-lavender font-medium">
+							<span className="text-xs font-medium">
 								Plásticos
 							</span>
 						</div>
