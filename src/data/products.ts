@@ -9,7 +9,7 @@ import img8 from "/public/products/gatillo_norte.webp";
 import img9 from "/public/products/lavandina_1.webp";
 import img10 from "/public/products/lavandina_2.webp";
 import img11 from "/public/products/talquera_250.webp";
-// import img12 from "/public/products/talquera_250.webp";
+import img12 from "/public/products/talquera_250.webp";
 import img13 from "/public/products/repelente.webp";
 import img14 from "/public/products/cuadrado_100.webp";
 import img15 from "/public/products/gel_2.webp";
@@ -23,14 +23,26 @@ import img22 from "/public/products/suavizante_4.webp";
 import img23 from "/public/products/jabonera_cilindrica.webp";
 import img24 from "/public/products/jabonera_oval.webp";
 import img25 from "/public/products/suavizante_1.webp";
-// import img26 from "/public/products/anillado_500.webp";
+import img26 from "/public/products/anillado.webp";
 import img27 from "/public/products/boya_satelite_grande.webp";
 import img28 from "/public/products/boya_satelite_chica.webp";
 import img29 from "/public/products/boya_hongo.webp";
 import img30 from "/public/products/leve_100.webp";
 import img31 from "/public/products/leve_200.webp";
 import img32 from "/public/products/multiuso.webp";
-// import img33 from "/public/products/bidon_institucional.webp";
+import img33 from "/public/products/bidon_10.webp";
+import img34 from "/public/products/pet_1.webp";
+import img35 from "/public/products/pet_500.webp";
+import img36 from "/public/products/pet_250.webp";
+import img37 from "/public/products/pote_1.webp";
+import img38 from "/public/products/pote_5.webp";
+import img39 from "/public/products/sacahojas.webp";
+import img40 from "/public/products/cabo_aluminio.webp";
+import img41 from "/public/products/limpiafondo.webp";
+import img42 from "/public/products/pet_900.webp";
+import img43 from "/public/products/pead_250.webp";
+import img44 from "/public/products/bidon_1.webp";
+import img45 from "/public/products/bidon_4.webp";
 
 import { Product } from "@/app/types";
 
@@ -170,7 +182,7 @@ export const products: Product[] = [
 	{
 		id: 12,
 		name: "Talquera polvo x 1 kg",
-		image: "", // check foto
+		image: img12, // check foto
 		category: "Jardin",
 		material: "PEAD",
 		capacity: "1 kg",
@@ -338,7 +350,7 @@ export const products: Product[] = [
 	{
 		id: 26,
 		name: "Env anillado x 1 lt",
-		image: "", // check foto
+		image: img26, // check foto
 		category: "Limpieza/Jardin",
 		material: "PVC",
 		capacity: "1 lt",
@@ -422,7 +434,7 @@ export const products: Product[] = [
 	{
 		id: 33,
 		name: "Bidon x 10 lts",
-		image: "",
+		image: img33,
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "10 lts",
@@ -434,7 +446,7 @@ export const products: Product[] = [
 	{
 		id: 34,
 		name: "Envase PET x 1 lt",
-		image: "",
+		image: img34,
 		category: "Limpieza/Bebidas",
 		material: "PET",
 		capacity: "1 lt",
@@ -446,7 +458,7 @@ export const products: Product[] = [
 	{
 		id: 35,
 		name: "Envase PET x 500 cc",
-		image: "",
+		image: img35,
 		category: "Limpieza/Bebidas",
 		material: "PET",
 		capacity: "500 cc",
@@ -458,7 +470,7 @@ export const products: Product[] = [
 	{
 		id: 36,
 		name: "Envase PET x 250 cc",
-		image: "",
+		image: img36,
 		category: "Limpieza/Bebidas",
 		material: "Cristal",
 		capacity: "250 cc",
@@ -470,7 +482,7 @@ export const products: Product[] = [
 	{
 		id: 37,
 		name: "Pote x 1 kg",
-		image: "",
+		image: img37,
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "1 kg",
@@ -482,7 +494,7 @@ export const products: Product[] = [
 	{
 		id: 38,
 		name: "Pote x 5 kg",
-		image: "",
+		image: img38,
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "5 kg",
@@ -494,7 +506,7 @@ export const products: Product[] = [
 	{
 		id: 39,
 		name: "Sacahojas Piano",
-		image: "",
+		image: img39,
 		category: "Piscinas",
 		material: "PP",
 		capacity: "19 mm",
@@ -506,7 +518,7 @@ export const products: Product[] = [
 	{
 		id: 40,
 		name: "Cabo Aluminio",
-		image: "",
+		image: img40,
 		category: "Piscinas",
 		material: "PEAD",
 		capacity: "19 mm",
@@ -518,7 +530,7 @@ export const products: Product[] = [
 	{
 		id: 41,
 		name: "Limpiafondo 8 ruedas",
-		image: "",
+		image: img41,
 		category: "Piscinas",
 		material: "PP",
 		capacity: "Flexible",
@@ -530,7 +542,7 @@ export const products: Product[] = [
 	{
 		id: 42,
 		name: "Env PET x 900 cc",
-		image: "",
+		image: img42,
 		category: "Limpieza/Piscinas",
 		material: "PET",
 		capacity: "900 cc",
@@ -542,7 +554,7 @@ export const products: Product[] = [
 	{
 		id: 43,
 		name: "Env PEAD x 250 cc",
-		image: "",
+		image: img43,
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "250 cc",
@@ -554,7 +566,7 @@ export const products: Product[] = [
 	{
 		id: 44,
 		name: "Bidon x 1 lt",
-		image: "",
+		image: img44,
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "1 lt",
@@ -566,7 +578,7 @@ export const products: Product[] = [
 	{
 		id: 45,
 		name: "Bidon x 4 lts",
-		image: "",
+		image: img45,
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "4 lts",
