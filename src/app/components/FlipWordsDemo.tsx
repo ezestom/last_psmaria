@@ -11,7 +11,7 @@ export function FlipWordsDemo() {
                Plásticos </span> Santa María
          </h1>
          <div className="md:text-5xl text-3xl -tracking-wider font-black text-white">
-            Productos <FlipWords words={words} className="text-primary-lavender" /> <br />
+            Productos <FlipWords words={words}/> <br />
             <span>para tu negocio.</span>
          </div>
       </div>
