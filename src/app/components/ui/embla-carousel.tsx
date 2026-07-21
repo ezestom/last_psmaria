@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import Image from 'next/image'
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import { Thumb } from './embla-carousel-thumbs-button'
@@ -46,7 +47,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                {slides.map((src, index) => (
                   <div className="embla__slide" key={index}>
                      <div className="embla__slide__number overflow-hidden relative">
-                        <img src={src} alt={`Slide ${index + 1}`} className="absolute inset-0 w-full h-full object-cover" />
+                        <Image src={src} alt={`Slide ${index + 1}`} fill className="object-cover" />
                      </div>
                   </div>
                ))}

@@ -2,7 +2,6 @@
 
 import React from "react";
 import { EmblaOptionsType } from 'embla-carousel';
-import { Subtitle } from "@/app/components/ui/subtitle";
 import { Button } from "@/app/components/ui/button";
 import EmblaCarousel from "@/app/components/ui/embla-carousel";
 import Link from "next/link";

@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 type PropType = {
    selected: boolean
@@ -22,7 +23,7 @@ export const Thumb: React.FC<PropType> = (props) => {
             className="embla-thumbs__slide__number relative overflow-hidden"
             aria-label={`Go to slide ${index + 1}`}
          >
-            <img src={src} alt={`Thumbnail ${index + 1}`} className="absolute inset-0 w-full h-full object-cover" />
+            <Image src={src} alt={`Thumbnail ${index + 1}`} fill className="object-cover" />
          </button>
       </div>
    )
