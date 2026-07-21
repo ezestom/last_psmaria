@@ -43,6 +43,8 @@ import img42 from "/public/products/pet_900.webp";
 import img43 from "/public/products/pead_250.webp";
 import img44 from "/public/products/bidon_1.webp";
 import img45 from "/public/products/bidon_4.webp";
+import img46 from "/public/products/bidon_5.webp";
+
 
 import { Product } from "@/app/types";
 
@@ -590,7 +592,7 @@ export const products: Product[] = [
 	{
 		id: 46,
 		name: "Bidon Mat. Recuperado",
-		image: "", 
+		image: img46, 
 		category: "Limpieza/Piscinas",
 		material: "PEAD",
 		capacity: "5 lts",
