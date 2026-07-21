@@ -11,8 +11,11 @@ import { motion } from "framer-motion";
 
 function AboutSection() {
    const OPTIONS: EmblaOptionsType = {}
-   const SLIDE_COUNT = 3
-   const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+   const SLIDES = [
+      "/factory/fabrica1_op.jpg",
+      "/factory/fabrica2_op.jpg",
+      "/factory/fabrica3_op.jpg"
+   ];
 
    const containerVariants = {
       hidden: { opacity: 0 },
@@ -59,9 +62,9 @@ function AboutSection() {
                animate="visible"
                className="border rounded-xl shadow-2xl border-hairline bg-surface-1/40 backdrop-blur-md p-6 sm:p-8 md:p-12"
             >
-               <motion.div variants={itemVariants}>
+               {/* <motion.div variants={itemVariants}>
                   <Subtitle subtitle="Plásticos Santa María" paragraph="Conoce más sobre nosotros" />
-               </motion.div>
+               </motion.div> */}
 
                <div className="flex flex-col lg:flex-row gap-12 mt-8 md:mt-12 items-stretch">
                   {/* Editorial Text */}

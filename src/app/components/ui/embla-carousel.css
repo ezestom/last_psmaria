@@ -54,7 +54,7 @@
 	}
 }
 .embla-thumbs__slide__number {
-	border-radius: 1.8rem;
+	border-radius: 0.6rem;
 	-webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
 	-webkit-appearance: none;
 	appearance: none;
