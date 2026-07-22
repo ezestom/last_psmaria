@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 import xIcon from "/public/icons/x.svg";
 import "./Form.css";
 import { Button } from "../ui/button";

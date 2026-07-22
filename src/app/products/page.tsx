@@ -8,7 +8,7 @@ import ProductSection from "@/app/components/product-section";
 import SiteFooter from "@/app/components/site-footer";
 import { products } from "@/data/products";
 import { Product, CartItem } from "@/app/types";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 import Image from "next/image";
 import { WhatsAppButton } from "@/app/components/ui/whatsapp-button";
 import { CheckoutModal } from "@/app/components/Form/CheckoutModal";
