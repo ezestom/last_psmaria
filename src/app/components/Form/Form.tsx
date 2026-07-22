@@ -115,7 +115,6 @@ export const Form: React.FC<FormProps> = ({
 
 	return (
 		<div className="relative flex items-center mt-10 justify-center z-10 m-auto">
-			<Toaster />
 			<span className="flex btn-form">
 				<Button
 					onClick={openDialog}

@@ -2,18 +2,16 @@
 import { StaticImageData } from "next/image";
 
 export interface Product {
-	id?: number;
-	name?: string;
-	image?: string | StaticImageData; // O el tipo específico para tu imagen
-	category?: string;
-	material?: string;
-	capacity?: string;
-	color?: string;
-	weight?: number | string;
-	quantity?: number;
-	// price?: number;
-	// originalPrice?: number;
-	isOffer?: boolean;
+	id: number;
+	name: string;
+	image: string | StaticImageData;
+	category: string;
+	material: string;
+	capacity: string;
+	color: string;
+	weight: number | string;
+	quantity: number;
+	isOffer: boolean;
 }
 
 export interface Deal {

@@ -181,7 +181,6 @@ export default function ProductsPageRoute() {
 
 	return (
 		<div className="flex flex-col bg-canvas">
-			<Toaster theme="dark" position="bottom-right" />
 			<Header
 				cart={cart}
 				isCartOpen={isCartOpen}

@@ -1,30 +1,163 @@
-#hero {
-	background-image: linear-gradient(to right, rgba(1, 1, 2, .75) 0%, rgba(1, 1, 2, .5) 50%, rgba(1, 1, 2, 0) 100%), url("/plastic_factory.jpg");
-	overflow: hidden;
-	height: 90dvh;
-	background-size: cover;
-	background-position: right;
-	background-repeat: no-repeat;
-	/* -webkit-mask-image: linear-gradient(
-		to bottom,
-		rgba(0, 0, 0, 1) 0%,
-		rgba(0, 0, 0, 1) 75%,
-		rgba(0, 0, 0, 0) 100%
-	);
-	mask-image: linear-gradient(
-		to bottom,
-		rgba(0, 0, 0, 1) 0%,
-		rgba(0, 0, 0, 1) 75%,
-		rgba(0, 0, 0, 0) 100%
-	); */
+/* ============================================
+   HERO — Scroll-Shrink Effect (reicon.dev style)
+   ============================================ */
 
-	background-color: var(--canvas); /* fallback */
+/*
+   How it works:
+   1. .hero-scroll-wrapper is 200vh tall — the extra 100vh is the "runway"
+   2. #hero is position:sticky at the top, so it stays in view
+   3. A CSS scroll-driven animation on the wrapper scales down and rounds
+      the hero as the wrapper scrolls through the viewport
+*/
+
+.hero-scroll-wrapper {
+	position: relative;
+	height: 200vh;
+	background-color: transparent;
+
+	/* Register a view-timeline so child can consume it */
+	view-timeline: --hero block;
 }
 
+#hero {
+	position: sticky;
+	top: 0;
+	width: 100%;
+	height: 100dvh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	/* Background */
+	background-image:
+		linear-gradient(
+			to right,
+			rgba(1, 1, 2, 0.82) 0%,
+			rgba(1, 1, 2, 0.55) 50%,
+			rgba(1, 1, 2, 0.1) 100%
+		),
+		url("/plastic_factory.jpg");
+	background-size: cover;
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-color: var(--canvas);
+
+	/* Initial state */
+	border-radius: 0;
+	transform-origin: center center;
+
+	/* Scroll-driven animation using the wrapper's view timeline */
+	animation: hero-shrink linear both;
+	animation-timeline: --hero;
+	animation-range: exit 0% exit 50%;
+
+	will-change: transform, border-radius;
+}
+
+@keyframes hero-shrink {
+	0% {
+		transform: scale(1);
+		border-radius: 0;
+	}
+	100% {
+		transform: scale(0.92);
+		border-radius: 28px;
+	}
+}
+
+/* ---- Stats Bar ---- */
+.hero-stats-bar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: .5rem 1rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	background: rgba(1, 1, 2, 0.5);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	z-index: 10;
+}
+
+.hero-stat {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	justify-content: center;
+
+	gap: 2px;
+}
+
+.hero-stat-value {
+	font-size: 1rem;
+	font-weight: 800;
+	color: var(--ink);
+	letter-spacing: -0.03em;
+	line-height: 1;
+}
+
+.hero-stat-label {
+	font-size: 0.65rem;
+	color: var(--ink-subtle);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	font-weight: 500;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
 @media (max-width: 768px) {
+	.hero-scroll-wrapper {
+		height: 170vh;
+	}
+
 	#hero {
-		background-size: cover;
-		height: 100vh;
-		background-position: right;
+		height: 100dvh;
+		background-position: 65% center;
+	}
+
+	@keyframes hero-shrink {
+		0% {
+			transform: scale(1);
+			border-radius: 0;
+		}
+		100% {
+			transform: scale(0.95);
+			border-radius: 20px;
+		}
+	}
+
+	.hero-stats-bar {
+		padding: 1rem 1.25rem;
+	}
+
+	.hero-stat-value {
+		font-size: 1.15rem;
+	}
+
+	.hero-stat-label {
+		font-size: 0.6rem;
+	}
+}
+
+/* ============================================
+   Fallback: browsers without scroll-timeline
+   ============================================ */
+@supports not (animation-timeline: --hero) {
+	.hero-scroll-wrapper {
+		height: auto;
+	}
+
+	#hero {
+		position: relative;
+		height: 100dvh;
+		animation: none;
+		border-radius: 0;
+		transform: none;
 	}
 }

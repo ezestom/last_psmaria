@@ -18,40 +18,40 @@ const Header: React.FC<HeaderProps> = ({ cart, isCartOpen, setIsCartOpen }) => {
 
 	return (
 		<header
-			className="sticky top-0 z-50 w-full bg-canvas border-b border-hairline backdrop-blur supports-[backdrop-filter]:bg-canvas/60 py-2"
+			className="fixed top-0 inset-x-0 z-50 w-full bg-black/40 backdrop-blur-md border-b border-white/10 transition-all duration-300"
 			id="navbar">
-			<div className="container px-4 md:px-6 flex h-14 items-center justify-between mx-auto relative">
-				<div className="flex items-center gap-6">
+			<div className="container px-4 md:px-6 flex h-12 items-center justify-between mx-auto relative">
+				<div className="flex items-center gap-8">
 					<Link
-						className="flex items-center space-x-2"
+						className="flex items-center space-x-2.5 group"
 						href="/#">
 						<Image
 							src={logo}
-							className="h-10 w-10 object-contain"
+							className="h-9 w-9 object-contain group-hover:scale-105 transition-transform"
 							alt="logo image"
 						/>
 
 						<div className="hidden flex-col-reverse text-base items-start sm:flex font-black leading-3 text-ink">
 							Santa María{" "}
-							<span className="text-xs font-medium">
+							<span className="text-[11px] font-medium text-ink-subtle">
 								Plásticos
 							</span>
 						</div>
 					</Link>
 
-					<nav className="hidden md:flex items-center space-x-2 text-sm font-medium">
+					<nav className="hidden md:flex items-center space-x-1 text-sm font-medium">
 						<Link
-							className="transition-colors hover:bg-surface-1 border border-transparent hover:border-hairline px-3 py-1.5 rounded-md text-ink-muted hover:text-ink"
+							className="transition-colors hover:bg-white/10 px-3.5 py-1.5 rounded-full text-ink-muted hover:text-white"
 							href="/#products">
 							Productos
 						</Link>
 						<Link
-							className="transition-colors hover:bg-surface-1 border border-transparent hover:border-hairline px-3 py-1.5 rounded-md text-ink-muted hover:text-ink"
+							className="transition-colors hover:bg-white/10 px-3.5 py-1.5 rounded-full text-ink-muted hover:text-white"
 							href="/#deals">
 							Ofertas
 						</Link>
 						<Link
-							className="transition-colors hover:bg-surface-1 border border-transparent hover:border-hairline px-3 py-1.5 rounded-md text-ink-muted hover:text-ink"
+							className="transition-colors hover:bg-white/10 px-3.5 py-1.5 rounded-full text-ink-muted hover:text-white"
 							href="/about">
 							Nosotros
 						</Link>
@@ -62,11 +62,11 @@ const Header: React.FC<HeaderProps> = ({ cart, isCartOpen, setIsCartOpen }) => {
 					<Button
 						variant="outline"
 						size="icon"
-						className="relative bg-surface-1 hover:bg-surface-2 border border-hairline text-ink hover:text-ink rounded-md transition-colors"
+						className="relative bg-white/10 hover:bg-white/15 border border-white/15 text-white hover:text-white rounded-full h-9 w-9 transition-colors shadow-none"
 						onClick={() => setIsCartOpen(!isCartOpen)}>
 						<ShoppingCartIcon className="h-4 w-4" />
 						{totalItems > 0 && (
-							<span className="absolute -top-2 -right-2 bg-primary-lavender text-white text-[10px] font-bold rounded-full h-5 min-w-5 flex items-center justify-center px-1 shadow-md border border-canvas animate-pulse">
+							<span className="absolute -top-1.5 -right-1.5 bg-primary-lavender text-white text-[10px] font-bold rounded-full h-5 min-w-5 flex items-center justify-center px-1 shadow-md border border-black animate-pulse">
 								{totalItems}
 							</span>
 						)}

@@ -12,7 +12,7 @@ import ProductSection from "@/app/components/product-section";
 import FeaturesSection from "@/app/components/features-section";
 import CTASignUpSection from "@/app/components/cta-section";
 import SiteFooter from "@/app/components/site-footer";
-import ProductPage from "@/app/components/product-section";
+
 import Header from "@/app/components/site-header";
 import { FlipWordsDemo } from "@/app/components/FlipWordsDemo";
 import { toast, Toaster } from "sonner";
@@ -101,8 +101,9 @@ export default function ECommerceApp() {
 	
 	useEffect(() => {
 		if (isMessageSuccess()) {
-			toast(
-				"Información enviada con éxito! Gracias por tu confianza.");
+			setTimeout(() => {
+				toast("Información enviada con éxito! Gracias por tu confianza.");
+			}, 0);
 			router.push("/sent-message");
 		}
 	}, [router]);
@@ -119,26 +120,44 @@ export default function ECommerceApp() {
 	const renderLandingPage = () => (
 		// Landing Page  Section
 		<main className="flex-1 ">
-			<section
-				className="w-full min-h-screen  overflow-hidden relative flex items-center justify-center"
-				id="hero">
-				<div className="container px-4 md:px-6 mb-16 mx-auto ">
-					<div className="flex flex-col justify-center space-y-8 text-center lg:text-left ">
-						<FlipWordsDemo />
-						<div className="flex gap-4 justify-center lg:justify-start">
-							<Link href="/about">
-								<Button className="inline-flex items-center justify-center text-ink bg-primary-lavender hover:bg-primary-hover focus:bg-primary-focus transition-colors shadow-none rounded-md py-2 px-4 border border-hairline font-semibold">
-									Empresa familiar
-									<ArrowRight className="ml-2 h-4 w-4" />
-								</Button>
-							</Link>
-							<AnimatedModalDemo />
+			{/* Hero — scroll-shrink wrapper */}
+			<div className="hero-scroll-wrapper">
+				<section
+					className="w-full overflow-hidden relative flex items-center justify-center"
+					id="hero">
+					<div className="container px-4 md:px-6 pt-20 md:pt-24 mb-16 mx-auto ">
+						<div className="flex flex-col justify-center space-y-8 text-center lg:text-left ">
+							<FlipWordsDemo />
+							<div className="flex gap-4 justify-center lg:justify-start">
+								<Link href="/about">
+									<Button className="inline-flex items-center justify-center text-ink bg-primary-lavender hover:bg-primary-hover focus:bg-primary-focus transition-colors shadow-none rounded-md py-2 px-4 border border-hairline font-semibold">
+										Empresa familiar
+										<ArrowRight className="ml-2 h-4 w-4" />
+									</Button>
+								</Link>
+								<AnimatedModalDemo />
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+
+					{/* Stats Bar */}
+					<div className="hero-stats-bar">
+						<div className="hero-stat">
+							<span className="hero-stat-value">+200</span>
+							<span className="hero-stat-label">Empresas</span>
+						</div>
+						<div className="hero-stat">
+							<span className="hero-stat-value">+40</span>
+							<span className="hero-stat-label">Modelos</span>
+						</div>
+						<div className="hero-stat">
+							<span className="hero-stat-value">2001</span>
+							<span className="hero-stat-label">Desde</span>
+						</div>
+					</div>
+				</section>
+			</div>
 			<WhatsAppButton className="bottom-12" />
-			<div className="fixed inset-0 -z-10 h-full w-full dark-grid-bg"></div>
 
 			<Steps />
 
@@ -267,7 +286,6 @@ export default function ECommerceApp() {
 
 	return (
 		<div className="flex flex-col min-h-screen">
-			<Toaster theme="dark" position="bottom-right" />
 			<Header
 				// setCurrentPage={setCurrentPage}
 				cart={cart}
@@ -277,7 +295,7 @@ export default function ECommerceApp() {
 			{currentPage === "landing" ? (
 				renderLandingPage()
 			) : (
-				<ProductPage products={products} addToCart={addToCart} />
+				<ProductSection products={products} addToCart={addToCart} />
 			)}
 			{renderCart()}
 			<CheckoutModal

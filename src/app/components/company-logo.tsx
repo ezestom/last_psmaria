@@ -106,7 +106,7 @@ const CompanyLogoSection = () => {
                   <div className="p-2 flex  grayscale transition duration-200 hover:grayscale-0 hover:scale-105 ">
                     <Image
                       alt={`${company.name} logo`}
-                      className="overflow-hidden object-contain object-center drop-shadow-sm max-w-24 md:max-w-40"
+                      className="overflow-hidden object-contain object-center drop-shadow-sm max-w-24 md:max-w-28 max-h-24"
                       src={company.logo}
                     />
                   </div>
@@ -126,7 +126,7 @@ const CompanyLogoSection = () => {
                   <div className="p-2 flex  grayscale transition duration-200 hover:grayscale-0 hover:scale-105 ">
                     <Image
                       alt={`${company.name} logo`}
-                      className="overflow-hidden object-contain object-center drop-shadow-sm max-w-24 md:max-w-36  max-h-24"
+                      className="overflow-hidden object-contain object-center drop-shadow-sm max-w-24 md:max-w-28 max-h-24"
                       src={company.logo}
                     />
                   </div>

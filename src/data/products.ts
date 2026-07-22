@@ -395,7 +395,7 @@ export const products: Product[] = [
 		color: "Blanco/Celeste",
 		weight: 90,
 		quantity: 40,
-		isOffer: false,
+		isOffer: true,
 	},
 	{
 		id: 30,
@@ -407,7 +407,7 @@ export const products: Product[] = [
 		color: "Natural",
 		weight: 12,
 		quantity: 700,
-		isOffer: false,
+		isOffer: true,
 	},
 	{
 		id: 31,
@@ -455,7 +455,7 @@ export const products: Product[] = [
 		color: "Cristal",
 		weight: 28,
 		quantity: 70,
-		isOffer: false,
+		isOffer: true,
 	},
 	{
 		id: 35,
