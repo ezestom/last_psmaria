@@ -15,7 +15,7 @@ import SiteFooter from "@/app/components/site-footer";
 
 import Header from "@/app/components/site-header";
 import { FlipWordsDemo } from "@/app/components/FlipWordsDemo";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 import "../app/components/Form/Form.css";
 import { WhatsAppButton } from "@/app/components/ui/whatsapp-button";
 // import formImage from "/public/hero.png";
